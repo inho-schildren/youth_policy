@@ -83,10 +83,7 @@ dependencies = [
     "jq>=1.11.0",
     "chardet<6",
     "langchain-pinecone>=0.2.3",
-    "milvus-lite>=2.5.1",
     "setuptools<72",
-    "llama-cpp-python>=0.3.19",
     "gpt4all>=2.8.2",
-    "umap-learn>=0.5,<1",
-    "pymilvus>=2,<3",
+    "umap-learn>=0.5,<1"
 ]
