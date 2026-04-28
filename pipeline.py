@@ -6,7 +6,7 @@ from core.metadata import (
     save_metadata, save_documents, load_documents
 )
 from core.chunker import chunk_documents
-from core.embedder import embed_and_save, load_vectorstore
+from core.embedder_vectorstore import embed_and_save, load_vectorstore
 from core.retriever import get_retriever
 from core.reranker import get_cross_encoder_reranker
 from config import (

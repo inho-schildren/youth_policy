@@ -5,7 +5,7 @@ from langchain.retrievers.document_compressors import LLMChainExtractor
 from langchain_openai import ChatOpenAI
 from langchain.retrievers.self_query.base import SelfQueryRetriever
 from langchain.chains.query_constructor.schema import AttributeInfo
-from core.embedder import load_vectorstore
+from core.embedder_vectorstore import load_vectorstore
 from config import RETRIEVER_K, BM25_WEIGHT, DENSE_WEIGHT, MMR_FETCH_K, MMR_LAMBDA, OPENAI_API_KEY, LLM_MODEL
 
 # def get_retriever(chunks):
