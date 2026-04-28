@@ -6,6 +6,7 @@ from langchain.schema import Document
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
 from dotenv import load_dotenv
+from core.data_loader import collect_documents
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -172,9 +173,6 @@ def extract_finance_metadata(doc: dict) -> dict:
 
 
 def run_finance_metadata_extraction(raw_data_path: str, save_path: str = "./data/finance_metadata.json") -> list:
-    import sys
-    sys.path.append("../")
-    from data_loader import collect_documents  # type: ignore
     
     documents = collect_documents(raw_data_path)
     all_metadata = []

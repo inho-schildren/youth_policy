@@ -2,11 +2,9 @@ from langchain_experimental.text_splitter import SemanticChunker
 from langchain_openai import OpenAIEmbeddings
 from langchain.schema import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter
 from config import EMBEDDING_MODEL, OPENAI_API_KEY
-
-import sys
-sys.path.append("../")
-from data_loader import collect_documents  # type: ignore
+from core.data_loader import collect_documents
 
 # splitter = RecursiveCharacterTextSplitter(
 #     chunk_size=500,
@@ -59,9 +57,6 @@ def chunk_documents(documents):
     return chunks
 
 def finance_chunking_recur(raw_data_path: str) -> list:
-    import sys
-    sys.path.append("../")
-
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
         chunk_overlap=50,
@@ -84,10 +79,6 @@ def finance_chunking_recur(raw_data_path: str) -> list:
     return chunks
 
 def finance_chunking_character(raw_data_path: str) -> list:
-    import sys
-    sys.path.append("../")
-    from langchain_text_splitters import CharacterTextSplitter
-
     text_splitter = CharacterTextSplitter(
         separator="\n",
         chunk_size=500,
@@ -105,9 +96,6 @@ def finance_chunking_character(raw_data_path: str) -> list:
     return chunks
 
 def run_finance_chunking_semantic(raw_data_path: str) -> list:
-    import sys
-    sys.path.append("../")
-
     text_splitter = SemanticChunker(OpenAIEmbeddings())
 
     documents = collect_documents(raw_data_path)
