@@ -2,13 +2,13 @@ import os
 from langchain.schema import Document
 from core.loader import load_pdf, get_text_by_pages
 from core.metadata import (
-    extract_metadata, normalize_meta,
+    extract_metadata, housing_normalize_meta,
     save_metadata, save_documents, load_documents
 )
 from core.chunker import chunk_documents
-from core.embedder import embed_and_save, load_vectorstore
+from core.embedder_vectorstore import embed_and_save, load_vectorstore
 from core.retriever import get_retriever
-from core.reranker import get_reranker
+from core.reranker import get_cross_encoder_reranker
 from config import (
     PDF_FOLDER, META_PATH, DOCS_PATH,
     CHUNKS_PATH, CHROMA_DIR,
@@ -86,7 +86,7 @@ def run_pipeline():
                 continue
 
             full_text = get_text_by_pages(pages, MAX_PAGES)[:MAX_TEXT_LENGTH]
-            meta = normalize_meta(extract_metadata(full_text), file)
+            meta = housing_normalize_meta(extract_metadata(full_text), file)
             meta_list.append(meta)
 
             for p in pages:
@@ -124,7 +124,7 @@ def run_pipeline():
 
     # ── 4. Retriever + Reranker ───────────────────────────
     retriever = get_retriever(chunks)
-    reranker  = get_reranker(retriever)
+    reranker  = get_cross_encoder_reranker(retriever)
 
     print("✅ 파이프라인 준비 완료\n")
     return reranker

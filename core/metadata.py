@@ -1,8 +1,12 @@
 import os
+import re
 import json
 from openai import OpenAI
 from langchain.schema import Document
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import SystemMessage, HumanMessage
 from dotenv import load_dotenv
+from core.data_loader import collect_documents
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -55,7 +59,7 @@ def safe_list(value):
         return [value]
     return []
 
-def normalize_meta(meta, file_name):
+def housing_normalize_meta(meta, file_name):
     return {
         "doc_id":                meta.get("doc_id") or file_name,
         "title":                 meta.get("title", ""),
@@ -109,3 +113,72 @@ def load_documents(save_path):
     with open(save_path, "r", encoding="utf-8") as f:
         data = json.load(f)
     return [Document(page_content=d["page_content"], metadata=d["metadata"]) for d in data]
+
+
+FINANCE_SCHEMA = """
+{
+    "doc_id": "고유 ID",
+    "title": "상품명",
+    "region": "전국/서울/경기 등",
+    "source_url": "상품 URL 또는 null",
+    "summary": "한줄요약",
+    "tags": ["관련 태그 목록"],
+    "target": ["청년/신혼부부/일반 중 해당하는 것"],
+    "age_min": 숫자 또는 null,
+    "age_max": 숫자 또는 null,
+    "marital_status": "미혼/기혼/예비신혼부부/무관",
+    "requires_no_house": "무주택자여야 신청 가능하면 true, 아니면 false",
+    "income_condition": "소득 조건 텍스트 또는 null",
+    "income_max_man": 숫자(만원) 또는 null,
+    "asset_max_man": 숫자(만원) 또는 null,
+    "loan_type": "전세/월세/구입",
+    "interest_rate_min": 숫자 또는 null,
+    "interest_rate_max": 숫자 또는 null,
+    "loan_limit_man": 숫자(만원) 또는 null,
+    "loan_period_max": 숫자(년) 또는 null,
+    "special_condition": ["생애최초/전세사기피해/신생아 등 또는 빈 리스트"],
+    "is_first_purchase": true/false
+}
+"""
+
+FINANCE_DEFAULTS = {
+    "age_min": 0, "age_max": 99,
+    "marital_status": "무관", "requires_no_house": None,
+    "income_max_man": 99999, "asset_max_man": 99999,
+    "region": "전국", "special_condition": [],
+    "is_first_purchase": False,
+}
+
+def extract_finance_metadata(doc: dict) -> dict:
+    model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+    text = doc["combined_text"]
+    response = model.invoke([
+        SystemMessage(
+            content=f"""청년 주거 금융 정책 문서입니다.
+            메타데이터를 JSON 형식에 맞춰 반환하세요. JSON 외 텍스트 금지.
+            값을 알 수 없거나 문서에 없는 경우 null로 채우세요.
+            상품 폴더명: {doc['group_name']}
+            스키마: {FINANCE_SCHEMA}"""),
+        HumanMessage(content=f"문서 내용:\n{text}")
+    ])
+    content = re.sub("```json|```", "", response.content).strip()
+    result = json.loads(content)
+    return {
+        "group_name": doc["group_name"],
+        "category": "금융",
+        "source": doc["files"],
+        **FINANCE_DEFAULTS,
+        **{k: v for k, v in result.items() if v is not None},
+    }
+
+
+def run_finance_metadata_extraction(raw_data_path: str, save_path: str = "./data/finance_metadata.json") -> list:
+    
+    documents = collect_documents(raw_data_path)
+    all_metadata = []
+    for doc in documents:
+        print(f"처리 중: {doc['group_name']}")
+        meta = extract_finance_metadata(doc)
+        all_metadata.append(meta)
+    save_metadata(all_metadata, save_path)
+    return all_metadata

@@ -1,0 +1,1205 @@
+[
+  {
+    "group_name": "(공고문) 2026년 청년 부동산 중개보수 및 이사비 지원사업 참여자 모집 공고문_",
+    "category": "금융",
+    "source": [
+      "(공고문) 2026년 청년 부동산 중개보수 및 이사비 지원사업 참여자 모집 공고문_.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 39,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 634,
+    "asset_max_man": 99999,
+    "region": "서울",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "doc_id": "2026-1109",
+    "title": "2026년 청년 부동산 중개보수 및 이사비 지원사업",
+    "summary": "청년가구의 주거비 부담을 덜어주기 위한 지원사업 참여자 모집",
+    "tags": [
+      "청년",
+      "주거비지원",
+      "이사비",
+      "부동산"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "가구당 기준 중위소득 150% 이하",
+    "loan_limit_man": 40
+  },
+  {
+    "group_name": "대출안내 _ 신혼부부전용 전세자금 _ 주택전세자금대출 ",
+    "category": "금융",
+    "source": [
+      "대출안내 _ 신혼부부전용 전세자금 _ 주택전세자금대출 .pdf"
+    ],
+    "age_min": 20,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 7500,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "신혼부부전용 전세자금",
+    "summary": "신혼부부를 위한 전세자금 대출 상품입니다.",
+    "tags": [
+      "신혼부부",
+      "전세자금",
+      "주택도시기금"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 7.5천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 1.9,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 2500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "갱신만료 임차인 지원 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "갱신만료 임차인 지원 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020109.jsp",
+    "summary": "갱신만료 임차인을 위한 전세자금 대출 지원",
+    "tags": [
+      "청년",
+      "전세자금",
+      "주거안정"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주",
+    "loan_type": "전세",
+    "interest_rate_min": 2.3,
+    "interest_rate_max": 3.5,
+    "loan_limit_man": 1800,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "갱신만료 임차인 지원 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "갱신만료 임차인 지원 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 7500,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "신혼부부전용 전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020409.jsp",
+    "summary": "신혼부부를 위한 전세자금 대출 상품",
+    "tags": [
+      "신혼부부",
+      "전세자금",
+      "주택도시기금"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 7.5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주",
+    "loan_type": "전세",
+    "interest_rate_min": 1.7,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 2500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "기한연장 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "기한연장 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020107.jsp",
+    "summary": "근로자 및 서민의 주거안정을 위한 전세자금을 대출해 드립니다.",
+    "tags": [
+      "청년",
+      "전세자금",
+      "주거안정"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주",
+    "loan_type": "전세",
+    "interest_rate_min": 2.5,
+    "interest_rate_max": 3.5,
+    "loan_limit_man": 1200,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "기한연장 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "기한연장 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 7500,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "신혼부부전용 전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020406.jsp",
+    "summary": "신혼부부를 위한 전세자금 대출 상품",
+    "tags": [
+      "신혼부부",
+      "전세자금",
+      "주택도시기금"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 7.5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주",
+    "loan_type": "전세",
+    "interest_rate_min": 1.9,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 2500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "기한연장 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "기한연장 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년전용 버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020307.jsp",
+    "summary": "청년전용 전세자금대출로, 무주택 청년을 위한 지원 상품입니다.",
+    "tags": [
+      "청년",
+      "전세자금대출"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주",
+    "loan_type": "전세",
+    "interest_rate_min": 2.2,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 1500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "기한연장 _ 청년전용 보증부월세대출 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "기한연장 _ 청년전용 보증부월세대출 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 34500,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년전용 보증부월세대출",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020707.jsp",
+    "summary": "청년들에게 저리로 전월세보증금 및 월세를 대출해드립니다.",
+    "tags": [
+      "청년",
+      "월세지원"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하",
+    "loan_type": "월세",
+    "interest_rate_min": 0,
+    "interest_rate_max": 1.3,
+    "loan_limit_man": 1200,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "내집마련디딤돌대출_일반대출",
+    "category": "금융",
+    "source": [
+      "이용절차 및 제출서류 _ 내집마련디딤돌대출 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf",
+      "일반대출 안내 _ 내집마련디딤돌대출 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 30,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 8500,
+    "asset_max_man": 5110,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": true,
+    "title": "내집마련디딤돌대출",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP05030101.jsp",
+    "summary": "주택도시기금의 개인상품 중 주택구입자금대출입니다.",
+    "tags": [
+      "청년",
+      "주택구입",
+      "대출"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 6천만원 이하(생애최초 주택구입자, 2자녀이상 가구는 연소득 7천만원, 신혼가구는 연소득 8.5천만원 이하)",
+    "loan_type": "구입",
+    "interest_rate_min": 2.85,
+    "interest_rate_max": 4.15,
+    "loan_limit_man": 3200,
+    "loan_period_max": 30
+  },
+  {
+    "group_name": "대환 대출 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "대환 대출 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 2000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020105.jsp",
+    "summary": "주택도시기금의 개인상품 중 주택전세자금대출입니다.",
+    "tags": [
+      "청년",
+      "전세자금대출",
+      "주택도시기금"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 2천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 2.5,
+    "interest_rate_max": 3.5,
+    "loan_limit_man": 1200,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "대환대출 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "대환대출 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 34,
+    "marital_status": "예비신혼부부",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "신혼부부전용 전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020404.jsp",
+    "summary": "신혼부부를 위한 전세자금 대출 상품",
+    "tags": [
+      "청년",
+      "신혼부부",
+      "전세자금대출"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 1.9,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 2500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "대환대출 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "대환대출 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년전용 버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020305.jsp",
+    "summary": "청년전용 전세자금대출로 최대 1.5억원 이내 지원",
+    "tags": [
+      "청년",
+      "전세자금대출"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 2.2,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 1500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "대환대출 _ 청년전용 보증부월세대출 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "대환대출 _ 청년전용 보증부월세대출 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년전용 보증부월세대출",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020705.jsp",
+    "summary": "월세 부담 완화를 위해 대출해 드립니다.",
+    "tags": [
+      "청년",
+      "월세지원"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 단독 세대주(예비세대주 포함)",
+    "loan_type": "월세",
+    "interest_rate_min": 0,
+    "interest_rate_max": 1,
+    "loan_limit_man": 1200,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "버팀목전세자금",
+    "category": "금융",
+    "source": [
+      "대출안내 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf",
+      "이용절차 및 제출서류 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020101.jsp",
+    "summary": "근로자 및 서민의 주거안정을 위한 전세자금을 대출해 드립니다.",
+    "tags": [
+      "청년",
+      "전세자금대출"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 2.5,
+    "interest_rate_max": 3.5,
+    "loan_limit_man": 1200,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "상품안내 _ 청년 주택드림 청약통장 상품 _ 주택청약상품 _ 청약_채권 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "상품안내 _ 청년 주택드림 청약통장 상품 _ 주택청약상품 _ 청약_채권 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 99999,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년 주택드림 청약통장 상품",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp",
+    "summary": "청년 주택드림 청약통장 상품은 기존 주택청약종합저축의 청약기능과 소득공제 혜택을 유지하면서 재형기능을 강화한 청약통장입니다.",
+    "tags": [
+      "청년",
+      "주택청약",
+      "소득공제"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "연소득 5천만 원 이하",
+    "interest_rate_min": 0,
+    "interest_rate_max": 4.5,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "생애주기형 구입자금 전환대출 _ 내집마련디딤돌대출 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "생애주기형 구입자금 전환대출 _ 내집마련디딤돌대출 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 30,
+    "age_max": 99,
+    "marital_status": "미혼",
+    "requires_no_house": true,
+    "income_max_man": 8500,
+    "asset_max_man": 5110,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "내집마련디딤돌대출",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030107.jsp",
+    "summary": "디딤돌대출을 이용 중인 만 30세 이상의 미혼 단독세대주가 결혼하여 다른 주택으로 이사하는 경우 기존 기금대출 담보주택 처분조건으로 신혼부부 우대적용 디딤돌대출로 전환하는 대출",
+    "tags": [
+      "청년",
+      "신혼부부"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 6천만원 이하(생애최초 주택구입자, 2자녀이상 가구는 연소득 7천만원, 신혼가구는 연소득 8.5천만원 이하)",
+    "loan_type": "구입",
+    "interest_rate_min": 2.85,
+    "interest_rate_max": 4.15,
+    "loan_limit_man": 3200,
+    "loan_period_max": 30
+  },
+  {
+    "group_name": "생애최초 주택구입 _ 특별공급제도 _ 청약가이드 _ 청약_채권 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "생애최초 주택구입 _ 특별공급제도 _ 청약가이드 _ 청약_채권 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 99999,
+    "asset_max_man": 99999,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "생애최초 주택구입자 특별공급",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP07/FP0702/FP07020506.jsp",
+    "summary": "특별공급제도 정보를 안내합니다.",
+    "tags": [
+      "청년",
+      "특별공급",
+      "주택청약"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "해당 세대의 월평균 소득이 전년도 도시근로자 가구당 월평균 소득의 100퍼센트 이하",
+    "loan_type": "구입"
+  },
+  {
+    "group_name": "신혼부부 임차보증금 이자지원 사업",
+    "category": "금융",
+    "source": [
+      "신혼부부 임차보증금 이자지원 사업 FAQ.pdf",
+      "신혼부부 임차보증금 이자지원사업 공고문.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "기혼/예비신혼부부",
+    "requires_no_house": true,
+    "income_max_man": 99999,
+    "asset_max_man": 99999,
+    "region": "서울",
+    "special_condition": [
+      "출산(입양) 가구",
+      "난임가구"
+    ],
+    "is_first_purchase": true,
+    "doc_id": "고유 ID",
+    "title": "신혼부부 임차보증금 이자지원 사업",
+    "source_url": "http://housing.seoul.go.kr",
+    "summary": "신혼부부의 주거비 부담 완화를 위한 임차보증금의 대출 이자 지원",
+    "tags": [
+      "신혼부부",
+      "임차보증금",
+      "이자지원"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 1억 3천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 1.0,
+    "interest_rate_max": 4.5,
+    "loan_limit_man": 3000,
+    "loan_period_max": 12
+  },
+  {
+    "group_name": "신혼부부전용 구입자금_일반대출",
+    "category": "금융",
+    "source": [
+      "이용절차 및 제출서류 _ 신혼부부전용 구입자금 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf",
+      "일반대출 안내 _ 신혼부부전용 구입자금 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 30,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 8500,
+    "asset_max_man": 5110,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "신혼부부전용 구입자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030602.jsp",
+    "summary": "신혼부부를 위한 주택구입자금 대출 상품",
+    "tags": [
+      "청년",
+      "신혼부부",
+      "주택구입자금"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 8.5천만원 이하",
+    "loan_type": "구입",
+    "interest_rate_min": 2.55,
+    "interest_rate_max": 3.85,
+    "loan_limit_man": 3200,
+    "loan_period_max": 30
+  },
+  {
+    "group_name": "안전주택 이주지원 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "안전주택 이주지원 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 6000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020110.jsp",
+    "summary": "근로자 및 서민의 주거안정을 위한 전세자금을 대출해 드립니다.",
+    "tags": [
+      "청년",
+      "전세자금",
+      "주거안정"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 총소득 60백만원(신혼가구인 경우 75백만원) 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 1.5,
+    "interest_rate_max": 3.5,
+    "loan_limit_man": 1200,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "원금상환유예제도 _ 신혼부부전용 구입자금 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "원금상환유예제도 _ 신혼부부전용 구입자금 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 8500,
+    "asset_max_man": 51100,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "신혼부부전용 구입자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030605.jsp",
+    "summary": "신혼부부를 위한 주택구입자금 대출 상품",
+    "tags": [
+      "청년",
+      "신혼부부",
+      "주택구입자금"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 8.5천만원 이하, 순자산가액 5.11억원 이하",
+    "loan_type": "구입",
+    "interest_rate_min": 2.55,
+    "interest_rate_max": 3.85,
+    "loan_limit_man": 32000,
+    "loan_period_max": 30
+  },
+  {
+    "group_name": "원금상환유예제도안내 _ 내집마련디딤돌대출 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "원금상환유예제도안내 _ 내집마련디딤돌대출 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 8500,
+    "asset_max_man": 5110,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "내집마련디딤돌대출",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030106.jsp",
+    "summary": "주택구입자금대출로 저금리의 구입자금대출을 지원합니다.",
+    "tags": [
+      "청년",
+      "주택구입자금대출"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 6천만원 이하(생애최초 주택구입자, 2자녀이상 가구는 연소득 7천만원, 신혼가구는 연소득 8.5천만원 이하)",
+    "loan_type": "구입",
+    "interest_rate_min": 2.85,
+    "interest_rate_max": 4.15,
+    "loan_limit_man": 3200,
+    "loan_period_max": 30
+  },
+  {
+    "group_name": "유한책임대출 안내 _ 내집마련디딤돌대출 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "유한책임대출 안내 _ 내집마련디딤돌대출 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 8500,
+    "asset_max_man": 5110,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "내집마련디딤돌대출",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030104.jsp",
+    "summary": "주택도시기금의 개인상품 중 주택구입자금대출입니다.",
+    "tags": [
+      "청년",
+      "주택구입자금대출"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 6천만원 이하(생애최초 주택구입자, 2자녀이상 가구는 연소득 7천만원, 신혼가구는 연소득 8.5천만원 이하)",
+    "loan_type": "구입",
+    "interest_rate_min": 2.85,
+    "interest_rate_max": 4.15,
+    "loan_limit_man": 3200,
+    "loan_period_max": 30
+  },
+  {
+    "group_name": "유한책임대출 안내 _ 신혼부부전용 구입자금 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "유한책임대출 안내 _ 신혼부부전용 구입자금 _ 주택구입자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 8500,
+    "asset_max_man": 5110,
+    "region": "전국",
+    "special_condition": [
+      "생애최초"
+    ],
+    "is_first_purchase": true,
+    "title": "신혼부부전용 구입자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030603.jsp",
+    "summary": "신혼부부를 위한 주택구입자금 대출 안내",
+    "tags": [
+      "신혼부부",
+      "주택구입자금",
+      "유한책임대출"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 8.5천만원 이하, 순자산가액 5.11억원 이하 무주택 세대주",
+    "loan_type": "구입",
+    "interest_rate_min": 2.55,
+    "interest_rate_max": 3.85,
+    "loan_limit_man": 3200,
+    "loan_period_max": 30
+  },
+  {
+    "group_name": "임차중도금 대출 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "임차중도금 대출 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020104.jsp",
+    "summary": "근로자 및 서민의 주거안정을 위한 전세자금을 대출해 드립니다.",
+    "tags": [
+      "청년",
+      "전세자금",
+      "주거안정"
+    ],
+    "target": [
+      "청년",
+      "일반"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주",
+    "loan_type": "전세",
+    "interest_rate_min": 2.5,
+    "interest_rate_max": 3.5,
+    "loan_limit_man": 1200,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "임차중도금 대출 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "임차중도금 대출 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년전용 버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020304.jsp",
+    "summary": "청년전용 전세자금대출",
+    "tags": [
+      "청년",
+      "전세자금대출"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 2.2,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 1500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "임차중도금대출 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "임차중도금대출 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 7500,
+    "asset_max_man": 34500,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "신혼부부전용 전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020403.jsp",
+    "summary": "신혼부부를 위한 전세자금 대출 상품",
+    "tags": [
+      "청년",
+      "신혼부부",
+      "전세자금"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 7.5천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 1.9,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 25000,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "전세보증금반환보증",
+    "category": "금융",
+    "source": [
+      "상품개요 _ 전세보증금반환보증 _ 개인보증 _ 주택도시보증공사.pdf",
+      "이용절차 및 제출서류 _ 전세보증금반환보증 _ 개인보증 _ 주택도시보증공사.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 7000,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "전세보증금반환보증",
+    "source_url": "https://www.khug.or.kr/hug/web/ig/dr/igdr000001.jsp",
+    "summary": "전세계약 종료 시 임대인이 임차인에게 반환해야 하는 전세보증금의 반환을 책임지는 보증상품",
+    "tags": [
+      "청년",
+      "전세보증금",
+      "주거안정"
+    ],
+    "target": [
+      "청년",
+      "신혼부부",
+      "일반"
+    ],
+    "income_condition": "소득 조건 없음",
+    "loan_type": "전세",
+    "loan_limit_man": 7000
+  },
+  {
+    "group_name": "전세임대주택 전세보증금반환보증",
+    "category": "금융",
+    "source": [
+      "상품개요 _ 전세임대주택 전세보증금반환보증 _ 기타 개인보증 _ 개인보증 _ 주택도시보증공사.pdf",
+      "이용절차 및 제출서류 _ 전세임대주택 전세보증금반환보증 _ 기타 개인보증 _ 개인보증 _ 주택도시보증공사.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 99999,
+    "asset_max_man": 99999,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "전세임대주택 전세보증금반환보증",
+    "source_url": "https://www.khug.or.kr/hug/web/ig/lj/iglj000001.jsp",
+    "summary": "기존주택 전세임대사업 시행자가 전세계약 체결을 위해 임대인에게 납입한 전세보증금을 계약기간 종료 이후 상환받지 못하는 경우 보증하는 상품.",
+    "tags": [
+      "청년",
+      "전세",
+      "보증"
+    ],
+    "target": [
+      "일반"
+    ],
+    "loan_type": "전세",
+    "interest_rate_min": 0.1
+  },
+  {
+    "group_name": "청년 임차보증금 이자지원사업 공고문",
+    "category": "금융",
+    "source": [
+      "청년 임차보증금 이자지원사업 공고문.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 39,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 4000,
+    "asset_max_man": 99999,
+    "region": "서울",
+    "special_condition": [
+      "자립준비청년"
+    ],
+    "is_first_purchase": false,
+    "doc_id": "2025-3066",
+    "title": "청년 임차보증금 이자지원사업",
+    "summary": "청년들의 주거비 부담을 완화하기 위한 임차보증금 이자지원 사업",
+    "tags": [
+      "청년",
+      "임차보증금",
+      "이자지원"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "연소득 4천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 1.0,
+    "interest_rate_max": 3.0,
+    "loan_limit_man": 2000,
+    "loan_period_max": 2
+  },
+  {
+    "group_name": "청년월세지원",
+    "category": "금융",
+    "source": [
+      "01. 2025년 서울시 청년월세지원 모집 공고문.pdf",
+      "03. 2025년 서울시 청년월세지원사업 FAQ.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 39,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 7539000,
+    "asset_max_man": 13000,
+    "region": "서울",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "doc_id": "2025-1771",
+    "title": "2025년 서울시 청년월세지원 사업",
+    "source_url": "https://housing.seoul.go.kr",
+    "summary": "서울시 청년의 주거비 부담 완화를 위한 월세 지원 사업",
+    "tags": [
+      "청년",
+      "월세지원"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "가구당 기준 중위소득 150% 이하",
+    "loan_type": "월세",
+    "loan_limit_man": 240,
+    "loan_period_max": 1
+  },
+  {
+    "group_name": "청년전용 버팀목전세자금",
+    "category": "금융",
+    "source": [
+      "대출안내 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf",
+      "이용절차 및 제출서류 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년전용 버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020301.jsp",
+    "summary": "청년전용 전세자금대출로, 만 19세 이상 만 34세 이하의 무주택 세대주를 대상으로 함.",
+    "tags": [
+      "청년",
+      "전세자금대출"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하, 특정 조건에 따라 6천만원 또는 7.5천만원 이하 가능",
+    "loan_type": "전세",
+    "interest_rate_min": 2.2,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 1500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "청년전용 보증부월세대출",
+    "category": "금융",
+    "source": [
+      "대출안내 _ 청년전용 보증부월세대출 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf",
+      "이용절차 및 제출서류 _ 청년전용 보증부월세대출 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년전용 보증부월세대출",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020701.jsp",
+    "page": 1,
+    "summary": "청년들에게 저리로 전월세보증금 및 월세를 대출해주는 상품입니다.",
+    "tags": [
+      "청년",
+      "월세지원"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하",
+    "loan_type": "월세",
+    "interest_rate_min": 0,
+    "interest_rate_max": 1.3,
+    "loan_limit_man": 5700,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "추가대출 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "추가대출 _ 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020108.jsp",
+    "summary": "근로자 및 서민의 주거안정을 위한 전세자금을 대출해 드립니다.",
+    "tags": [
+      "청년",
+      "전세자금",
+      "주거안정"
+    ],
+    "target": [
+      "청년",
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주",
+    "loan_type": "전세",
+    "interest_rate_min": 2.5,
+    "interest_rate_max": 3.5,
+    "loan_limit_man": 1200,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "추가대출 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "추가대출 _ 신혼부부전용 전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 0,
+    "age_max": 99,
+    "marital_status": "기혼",
+    "requires_no_house": true,
+    "income_max_man": 7500,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "신혼부부전용 전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020407.jsp",
+    "summary": "신혼부부를 위한 전세자금 대출 상품",
+    "tags": [
+      "신혼부부",
+      "전세자금",
+      "주택도시기금"
+    ],
+    "target": [
+      "신혼부부"
+    ],
+    "income_condition": "부부합산 연소득 7.5천만원 이하",
+    "loan_type": "전세",
+    "interest_rate_min": 1.9,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 2500,
+    "loan_period_max": 10
+  },
+  {
+    "group_name": "추가대출 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금",
+    "category": "금융",
+    "source": [
+      "추가대출 _ 청년전용 버팀목전세자금 _ 주택전세자금대출 _ 개인상품 _ 주택도시기금.pdf"
+    ],
+    "age_min": 19,
+    "age_max": 34,
+    "marital_status": "무관",
+    "requires_no_house": true,
+    "income_max_man": 5000,
+    "asset_max_man": 3450,
+    "region": "전국",
+    "special_condition": [],
+    "is_first_purchase": false,
+    "title": "청년전용 버팀목전세자금",
+    "source_url": "https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020308.jsp",
+    "summary": "청년전용 전세자금대출로, 전세자금이 부족한 청년들에게 대출 지원.",
+    "tags": [
+      "청년",
+      "전세자금대출"
+    ],
+    "target": [
+      "청년"
+    ],
+    "income_condition": "부부합산 연소득 5천만원 이하, 순자산가액 3.45억원 이하 무주택 세대주",
+    "loan_type": "전세",
+    "interest_rate_min": 2.2,
+    "interest_rate_max": 3.3,
+    "loan_limit_man": 1500,
+    "loan_period_max": 10
+  }
+]
