@@ -5,14 +5,18 @@ from core.metadata import (
     extract_metadata, housing_normalize_meta,
     save_metadata, save_documents, load_documents
 )
-from core.chunker import chunk_documents
-from core.embedder_vectorstore import embed_and_save, load_vectorstore
-from core.retriever import get_retriever
+from core.chunker import chunk_documents, finance_chunking_recur
+from core.embedder_vectorstore import (
+    embed_and_save, load_vectorstore,
+    embed_and_save_finance, load_finance_vectorstore)
+from core.retriever import get_retriever, get_finance_selfquery_retriever
 from core.reranker import get_cross_encoder_reranker
 from config import (
     PDF_FOLDER, META_PATH, DOCS_PATH,
     CHUNKS_PATH, CHROMA_DIR,
-    MAX_PAGES, MAX_TEXT_LENGTH
+    MAX_PAGES, MAX_TEXT_LENGTH,
+    FINANCE_PDF_FOLDER, FINANCE_META_PATH, FINANCE_DOCS_PATH,
+    FINANCE_CHUNKS_PATH, FINANCE_CHROMA_DIR
 )
 
 # def run_pipeline():
@@ -124,7 +128,64 @@ def run_pipeline():
 
     # ── 4. Retriever + Reranker ───────────────────────────
     retriever = get_retriever(chunks)
-    reranker  = get_cross_encoder_reranker(retriever)
+    #reranker  = get_cross_encoder_reranker(retriever)
 
     print("✅ 파이프라인 준비 완료\n")
-    return reranker
+    return retriever
+
+def run_finance_pipeline():
+    # ── 1. PDF → Document ─────────────────────────────────
+    if not os.path.exists(FINANCE_DOCS_PATH):
+        print("🔄 금융 PDF 로드 시작")
+        from core.data_loader import collect_documents
+        import json, os as _os
+
+        documents = collect_documents(FINANCE_PDF_FOLDER)
+
+        # 메타데이터 로드
+        with open(FINANCE_META_PATH, encoding="utf-8") as f:
+            all_metadata = json.load(f)
+        meta_dict = {m["group_name"]: m for m in all_metadata}
+
+        all_pages = []
+        for doc in documents:
+            pages = doc["pages"]
+            group_name = doc["group_name"]
+
+            # 메타데이터 부착
+            meta = meta_dict.get(group_name, {})
+            for page in pages:
+                page.metadata.update(meta)
+                # 리스트 → 문자열 변환
+                for k, v in page.metadata.items():
+                    if isinstance(v, list):
+                        page.metadata[k] = ", ".join(str(i) for i in v)
+            all_pages.extend(pages)
+
+        save_documents(all_pages, FINANCE_DOCS_PATH)
+    else:
+        print("📂 기존 finance_documents.json 로드")
+        all_pages = load_documents(FINANCE_DOCS_PATH)
+
+    # ── 2. 청킹 ───────────────────────────────────────────
+    if not os.path.exists(FINANCE_CHUNKS_PATH):
+        print("🔄 금융 청킹 시작")
+        chunks = finance_chunking_recur(all_pages)
+        save_documents(chunks, FINANCE_CHUNKS_PATH)
+    else:
+        print("📂 기존 finance_chunks.json 로드")
+        chunks = load_documents(FINANCE_CHUNKS_PATH)
+
+    # ── 3. 임베딩 ─────────────────────────────────────────
+    if not os.path.exists(FINANCE_CHROMA_DIR):
+        print("🔄 금융 임베딩 시작")
+        embed_and_save_finance(chunks)
+    else:
+        print("📂 기존 금융 벡터스토어 로드")
+
+    # ── 4. Retriever ──────────────────────────────────────
+    vectorstore = load_finance_vectorstore()
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+
+    print("✅ 금융 파이프라인 준비 완료\n")
+    return retriever

@@ -3,7 +3,7 @@ from langchain_community.vectorstores import Chroma
 import os
 import time
 from dotenv import load_dotenv
-from config import CHROMA_DIR, EMBEDDING_MODEL, OPENAI_API_KEY
+from config import CHROMA_DIR, EMBEDDING_MODEL, OPENAI_API_KEY, FINANCE_CHROMA_DIR
 
 load_dotenv()
 
@@ -36,8 +36,6 @@ def load_vectorstore():
         persist_directory=CHROMA_DIR,
         embedding_function=embedding
     )
-
-FINANCE_CHROMA_DIR = os.path.join(os.path.dirname(__file__), "../../data/vectorstore/chroma_finance")
 
 def embed_and_save_finance(chunks, collection_name: str = "youth_finance_policy"):
     vectorstore = None

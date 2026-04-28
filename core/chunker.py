@@ -56,7 +56,9 @@ def chunk_documents(documents):
     print(f"✅ 청킹 완료: {len(documents)}개 → {len(chunks)}개 청크")
     return chunks
 
-def finance_chunking_recur(raw_data_path: str) -> list:
+def finance_chunking_recur(all_pages: list) -> list:
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
+    
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
         chunk_overlap=50,
@@ -68,11 +70,6 @@ def finance_chunking_recur(raw_data_path: str) -> list:
             "\n-", "\n", ". ", " ",
         ]
     )
-
-    documents = collect_documents(raw_data_path)
-    all_pages = []
-    for doc in documents:
-        all_pages.extend(doc["pages"])
 
     chunks = text_splitter.split_documents(all_pages)
     print(f"총 청크 수: {len(chunks)}")

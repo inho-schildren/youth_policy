@@ -22,6 +22,12 @@ DOCS_PATH   = "./data/output_v2.json"
 CHUNKS_PATH = "./data/chunks_v2.json"
 CHROMA_DIR  = "./db/chroma_db_v2"
 
+FINANCE_PDF_FOLDER = "./data/raw_data"
+FINANCE_META_PATH = "./data/finance_metadata.json"
+FINANCE_DOCS_PATH = "./data/finance_documents.json"
+FINANCE_CHUNKS_PATH = "./data/finance_chunks.json"
+FINANCE_CHROMA_DIR = "./db/chroma_finance"
+
 # ── 파라미터 ─────────────────────────────────────────────
 MAX_PAGES        = 30    # 메타데이터 추출 시 읽을 최대 페이지 수
 MAX_TEXT_LENGTH  = 5000  # LLM에 넘길 최대 텍스트 길이

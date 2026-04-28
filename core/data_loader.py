@@ -1,8 +1,6 @@
 from langchain_community.document_loaders import PyPDFLoader
 import os
 
-FILE_PATH = "../raw_data"
-
 def load_pdf_pages(pdf_path: str) -> list:
     loader = PyPDFLoader(pdf_path)
     return loader.load()
