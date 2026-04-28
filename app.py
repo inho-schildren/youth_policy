@@ -1,8 +1,7 @@
 import streamlit as st
 import json
 import re
-from pipeline import run_pipeline
-from finance_pipeline import run_finance_pipeline
+from pipeline import run_pipeline, run_finance_pipeline
 from chain.rag_chain import build_chain, ask_llm, state
 
 st.set_page_config(

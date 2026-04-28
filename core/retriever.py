@@ -76,3 +76,26 @@ def get_finance_selfquery_retriever(chunks=None, vectorstore=None):
 
     print("✅ 금융 SelfQuery Retriever 생성 완료")
     return selfquery_retriever
+
+def get_finance_retriever(chunks):
+    from core.embedder_vectorstore import load_finance_vectorstore
+    
+    bm25_retriever = BM25Retriever.from_documents(chunks)
+    bm25_retriever.k = RETRIEVER_K
+
+    vectorstore = load_finance_vectorstore()
+    dense_retriever = vectorstore.as_retriever(
+        search_type="mmr",
+        search_kwargs={
+            "k": RETRIEVER_K,
+            "fetch_k": MMR_FETCH_K,
+            "lambda_mult": MMR_LAMBDA
+        }
+    )
+
+    ensemble_retriever = EnsembleRetriever(
+        retrievers=[bm25_retriever, dense_retriever],
+        weights=[BM25_WEIGHT, DENSE_WEIGHT]
+    )
+    print(f"✅ 금융 Ensemble Retriever 생성 완료")
+    return ensemble_retriever
