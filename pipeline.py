@@ -8,7 +8,7 @@ from core.metadata import (
 from core.chunker import chunk_documents
 from core.embedder import embed_and_save, load_vectorstore
 from core.retriever import get_retriever
-from core.reranker import get_reranker
+from core.reranker import get_cross_encoder_reranker
 from config import (
     PDF_FOLDER, META_PATH, DOCS_PATH,
     CHUNKS_PATH, CHROMA_DIR,
@@ -124,7 +124,7 @@ def run_pipeline():
 
     # ── 4. Retriever + Reranker ───────────────────────────
     retriever = get_retriever(chunks)
-    reranker  = get_reranker(retriever)
+    reranker  = get_cross_encoder_reranker(retriever)
 
     print("✅ 파이프라인 준비 완료\n")
     return reranker
