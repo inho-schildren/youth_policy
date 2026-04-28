@@ -2,7 +2,7 @@ import os
 from langchain.schema import Document
 from core.loader import load_pdf, get_text_by_pages
 from core.metadata import (
-    extract_metadata, normalize_meta,
+    extract_metadata, housing_normalize_meta,
     save_metadata, save_documents, load_documents
 )
 from core.chunker import chunk_documents
