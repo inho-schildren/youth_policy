@@ -3,26 +3,11 @@ from openai import OpenAI
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
+from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
-prompt = ChatPromptTemplate.from_template("""
-너는 서울 청년 주거 정책 전문 상담사야. 아래 문서를 바탕으로 사용자 상황에 맞는 정책을 추천해줘.
-
-[답변 원칙]
-- 사용자의 상황(나이, 소득, 가구형태, 지역)을 고려해 가장 적합한 정책을 우선순위로 추천
-- 문서에 없는 내용은 "해당 정보가 문서에 없습니다"라고 명확히 말해
-- 신청 방법, 자격 조건, 지원 금액을 구체적으로 항목화해서 안내
-- 놓치기 쉬운 조건이나 주의사항도 반드시 포함
-
-문서:
-{context}
-
-사용자 질문: {question}
-""")
 
 llm = ChatOpenAI(
     model="gpt-4o-mini",
@@ -30,14 +15,127 @@ llm = ChatOpenAI(
     openai_api_key=os.getenv("OPENAI_API_KEY")
 )
 
-def build_chain(retriever):
-    chain = (
-        {"context": retriever, "question": RunnablePassthrough()}
-        | prompt
+# ── TOP3 선정 프롬프트 ────────────────────────────────────
+top3_prompt = ChatPromptTemplate.from_template("""
+너는 청년 주거 및 금융 정책 전문가야.
+아래 후보 정책들 중에서 사용자 질문에 가장 적합한 TOP3를 선정해줘.
+문서에 없는 내용은 절대 추가하지 마.
+
+후보 정책들:
+{candidates}
+
+질문: {query}
+
+아래 JSON 형식으로만 출력해줘. 다른 텍스트 없이 JSON만 출력:
+{{
+    "top3": [
+        {{
+            "rank": 1,
+            "type": "주거 or 금융",
+            "title": "정책명",
+            "reason": "선정 이유",
+            "content": "핵심 내용"
+        }}
+    ]
+}}
+""")
+
+# ── 보고서 프롬프트 ───────────────────────────────────────
+report_prompt = ChatPromptTemplate.from_template("""
+너는 청년 주택 정책 전문가야.
+반드시 아래 TOP3 정책만을 근거로 보고서를 작성해줘.
+문서에 없는 내용은 절대 추가하지 마.
+
+사용자 질문: {query}
+TOP3 정책: {top3_context}
+
+아래 JSON 형식으로만 출력해줘. 다른 텍스트 없이 JSON만 출력:
+{{
+    "summary": "사용자 상황 요약 (2~3줄)",
+    "metrics": {{
+        "추천정책수": "3개",
+        "주거정책": "X개",
+        "금융정책": "X개",
+        "신청가능": "즉시 가능"
+    }},
+    "policy_analysis": [
+        {{
+            "title": "정책명",
+            "type": "주거 or 금융",
+            "core": "핵심 내용",
+            "pros": "장점",
+            "cons": "단점 및 유의사항"
+        }}
+    ],
+    "combination": "정책 조합 전략",
+    "risks": "주의사항 및 리스크",
+    "recommendation": "종합 추천 및 행동 계획"
+}}
+""")
+
+def build_chain(housing_retriever, finance_retriever):
+
+    # ── 1. 후보군 수집 (주거 5개 + 금융 5개) ─────────────
+    def get_candidates(inputs):
+        query        = inputs["query"]
+        housing_docs = housing_retriever.invoke(query)[:5]
+        finance_docs = finance_retriever.invoke(query)[:5]
+
+        # 후보군 텍스트 구성
+        candidates = ""
+        for i, doc in enumerate(housing_docs):
+            candidates += f"[주거정책 {i+1}]\n{doc.page_content}\n\n"
+        for i, doc in enumerate(finance_docs):
+            candidates += f"[금융정책 {i+1}]\n{doc.page_content}\n\n"
+
+        return {
+            "query":      query,
+            "candidates": candidates,
+            "all_docs":   housing_docs + finance_docs
+        }
+
+    # ── 2. TOP3 선정 체인 ─────────────────────────────────
+    top3_chain = (
+        RunnableLambda(get_candidates)
+        | top3_prompt
         | llm
         | StrOutputParser()
     )
-    return chain
+
+    # ── 3. 보고서 체인 (TOP3 기반) ────────────────────────
+    def get_top3_context(inputs):
+        import json
+        query    = inputs["query"]
+        top3_raw = top3_chain.invoke(inputs)
+
+        try:
+            if "```" in top3_raw:
+                top3_raw = top3_raw.split("```")[1]
+                if top3_raw.startswith("json"):
+                    top3_raw = top3_raw[4:]
+            top3_data = json.loads(top3_raw.strip())
+        except:
+            top3_data = {"top3": []}
+
+        top3_context = "\n".join([
+            f"[{p['rank']}위 / {p['type']}] {p['title']}\n{p['content']}"
+            for p in top3_data.get("top3", [])
+        ])
+
+        return {
+            "query":        query,
+            "top3_context": top3_context,
+            "top3_data":    top3_data
+        }
+
+    report_chain = (
+        RunnableLambda(get_top3_context)
+        | report_prompt
+        | llm
+        | StrOutputParser()
+    )
+
+    return top3_chain, report_chain
 
 
 

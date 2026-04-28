@@ -22,6 +22,7 @@ from langchain_cohere import CohereRerank
 from langchain.retrievers.document_compressors import CrossEncoderReranker
 from langchain_community.cross_encoders import HuggingFaceCrossEncoder
 from config import RETRIEVER_K, RERANKER_TOP_N
+import os
 
 def get_cohere_reranker(retriever):
     compressor = CohereRerank(
