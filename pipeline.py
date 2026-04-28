@@ -86,7 +86,7 @@ def run_pipeline():
                 continue
 
             full_text = get_text_by_pages(pages, MAX_PAGES)[:MAX_TEXT_LENGTH]
-            meta = normalize_meta(extract_metadata(full_text), file)
+            meta = housing_normalize_meta(extract_metadata(full_text), file)
             meta_list.append(meta)
 
             for p in pages:
