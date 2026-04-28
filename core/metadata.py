@@ -58,7 +58,7 @@ def safe_list(value):
         return [value]
     return []
 
-def normalize_meta(meta, file_name):
+def housing_normalize_meta(meta, file_name):
     return {
         "doc_id":                meta.get("doc_id") or file_name,
         "title":                 meta.get("title", ""),
