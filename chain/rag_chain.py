@@ -32,9 +32,9 @@ top3_prompt = ChatPromptTemplate.from_template("""
         {{
             "rank": 1,
             "type": "주거 or 금융",
-            "title": "정책명",
-            "reason": "선정 이유",
-            "content": "핵심 내용"
+            "title": "반드시 후보 정책의 [제목] 필드값을 그대로 사용",
+            "reason": "이 정책을 선정한 구체적인 이유 2문장",
+            "content": "핵심 지원 내용, 대상, 소득조건 포함 2~3문장"
         }}
     ]
 }}
@@ -51,7 +51,7 @@ TOP3 정책: {top3_context}
 
 아래 JSON 형식으로만 출력해줘. 다른 텍스트 없이 JSON만 출력:
 {{
-    "summary": "사용자 상황 요약 (2~3줄)",
+    "summary": "사용자 상황 분석 및 핵심 요약 (3~4문장, 구체적으로)",
     "metrics": {{
         "추천정책수": "3개",
         "주거정책": "X개",
@@ -60,16 +60,21 @@ TOP3 정책: {top3_context}
     }},
     "policy_analysis": [
         {{
-            "title": "정책명",
+            "title": "정책명 (반드시 TOP3에서 받은 정확한 정책명 사용)",
             "type": "주거 or 금융",
-            "core": "핵심 내용",
-            "pros": "장점",
-            "cons": "단점 및 유의사항"
+            "core": "핵심 내용 2~3문장으로 상세히",
+            "pros": ["구체적 장점1", "구체적 장점2", "구체적 장점3"],
+            "cons": ["구체적 단점/유의사항1", "구체적 단점/유의사항2", "구체적 단점/유의사항3"]
         }}
     ],
-    "combination": "정책 조합 전략",
-    "risks": "주의사항 및 리스크",
-    "recommendation": "종합 추천 및 행동 계획"
+    "combination": "주거+금융 정책을 함께 활용하는 최적의 방법 3~4문장. 중복 수혜 가능 여부와 신청 순서 포함",
+    "risks": [
+        "놓치기 쉬운 자격 조건",
+        "신청 시 주의할 서류나 절차",
+        "소득/자산 기준 초과 시 대안",
+        "기간 만료나 조기 마감 리스크"
+    ],
+    "recommendation": "사용자에게 가장 적합한 정책 조합과 구체적 행동 계획 4~5문장. 1순위 신청 정책, 신청 방법, 준비 서류 포함"
 }}
 """)
 
@@ -77,16 +82,46 @@ def build_chain(housing_retriever, finance_retriever):
 
     # ── 1. 후보군 수집 (주거 5개 + 금융 5개) ─────────────
     def get_candidates(inputs):
-        query        = inputs["query"]
+        query = inputs["query"]
         housing_docs = housing_retriever.invoke(query)[:5]
         finance_docs = finance_retriever.invoke(query)[:5]
 
-        # 후보군 텍스트 구성
         candidates = ""
         for i, doc in enumerate(housing_docs):
-            candidates += f"[주거정책 {i+1}]\n{doc.page_content}\n\n"
+            # 메타데이터 + 본문 함께 넘기기
+            title   = doc.metadata.get('title', f'주거정책{i+1}')
+            region  = doc.metadata.get('region', '')
+            target  = doc.metadata.get('target', '')
+            income  = doc.metadata.get('income_condition', '')
+            support = doc.metadata.get('support_type', '')
+            period  = doc.metadata.get('application_period', '')
+            candidates += (
+                f"[주거정책 {i+1}]\n"
+                f"제목: {title}\n"
+                f"지역: {region}\n"
+                f"대상: {target}\n"
+                f"소득조건: {income}\n"
+                f"지원유형: {support}\n"
+                f"신청기간: {period}\n"
+                f"내용: {doc.page_content[:300]}\n\n"
+            )
         for i, doc in enumerate(finance_docs):
-            candidates += f"[금융정책 {i+1}]\n{doc.page_content}\n\n"
+            title   = doc.metadata.get('title', f'금융정책{i+1}')
+            region  = doc.metadata.get('region', '')
+            target  = doc.metadata.get('target', '')
+            income  = doc.metadata.get('income_condition', '')
+            support = doc.metadata.get('support_type', '')
+            period  = doc.metadata.get('application_period', '')
+            candidates += (
+                f"[금융정책 {i+1}]\n"
+                f"제목: {title}\n"
+                f"지역: {region}\n"
+                f"대상: {target}\n"
+                f"소득조건: {income}\n"
+                f"지원유형: {support}\n"
+                f"신청기간: {period}\n"
+                f"내용: {doc.page_content[:300]}\n\n"
+            )
 
         return {
             "query":      query,
