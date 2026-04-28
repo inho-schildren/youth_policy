@@ -322,6 +322,26 @@ st.markdown("""
 
     /* 알림 메시지 */
     .stAlert { border-radius: 12px !important; font-size: 1rem !important; }
+
+    .query-info-card {
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.4rem;
+    margin: 0.8rem 0;
+}
+.query-info-label {
+    color: #a78bfa;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.query-info-text {
+    color: #e2e8f0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -511,26 +531,41 @@ def render_report(data):
 st.markdown('<div class="main-title">🏠 청년 주택 정책 어시스턴트</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">나에게 맞는 주거·금융 정책을 찾고 종합 보고서를 받아보세요</div>', unsafe_allow_html=True)
 
+
 st.divider()
 
-col_input, col_btn = st.columns([5, 1])
-with col_input:
-    query = st.text_input(
-        label="질문",
-        placeholder="예) 금천구에 거주 예정인 신혼부부인데 주거 정책 알려줘",
-        label_visibility="collapsed"
-    )
-with col_btn:
-    search = st.button("🔍 검색", use_container_width=True)
 
+import streamlit as st
+
+# 1. 불필요한 input_key 관리 로직 제거 (삭제해도 됩니다)
+
+st.divider()
+
+# 폼 생성
+with st.form(key='search_form', clear_on_submit=True):
+    col_input, col_btn = st.columns([0.8, 0.2])
+    
+    with col_input:
+        query = st.text_input(
+            label="질문",
+            placeholder="예) 금천구에 거주 예정인 신혼부부인데 주거 정책 알려줘",
+            label_visibility="collapsed",
+            key="query_input" 
+        )
+        
+    with col_btn:
+        search = st.form_submit_button("🔍 검색", use_container_width=True)
+
+# 검색 로직 (수정됨)
 if search:
     if not query.strip():
         st.warning("질문을 입력해주세요.")
     else:
+        # 1. 폼의 clear_on_submit=True 덕분에 입력창은 자동으로 비워집니다.
+        # 2. rag.ask_llm은 한 번만 호출하면 됩니다.
         finished, result = rag.ask_llm(query)
 
         if not finished:
-            # st.chat_message 대신 커스텀 카드 사용
             st.markdown(
                 f'<div class="ask-back-card">'
                 f'<div class="ask-back-icon">🤖 어시스턴트</div>'
@@ -539,7 +574,27 @@ if search:
                 unsafe_allow_html=True
             )
         else:
-            # st.success 대신 커스텀 카드 사용
+            # 수집된 정보 요약 카드 (기존 코드와 동일)
+            label_map = {
+                "category": "문의 분류", "region": "관심 지역", "target": "현재 상황",
+                "product_category": "금융 상품", "special_condition": "우대 조건",
+                "housing_type": "주택 형태", "residence_requirement": "거주 요건"
+            }
+            items = "".join([
+                f'<div class="query-info-item">'
+                f'<span class="query-info-key">{label_map.get(k, k)}: </span>'
+                f'<span class="query-info-val">{v}</span>'
+                f'</div>'
+                for k, v in rag.state.items() if v
+            ])
+            st.markdown(
+                f'<div class="query-info-card">'
+                f'<div class="query-info-label">📋 입력하신 정보</div>'
+                f'{items}'
+                f'</div>',
+                unsafe_allow_html=True
+            )
+
             st.markdown('<div class="success-card">✅ 검색을 시작합니다!</div>', unsafe_allow_html=True)
 
             with st.spinner("관련 정책을 검색하고 있습니다..."):

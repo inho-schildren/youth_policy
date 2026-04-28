@@ -107,36 +107,49 @@ JSON만 반환: {{"finance_query": "...", "housing_query": "..."}}"""
     return json.loads(cleaned_text)
 
 def ask_missing(missing, current_state):
-    # 이미 알고 있는 정보만 필터링 (값이 None이 아닌 것들)
+    # 이미 알고 있는 정보 요약
     known_info = {k: v for k, v in current_state.items() if v is not None}
-    
-    # 딕셔너리 키를 예쁜 이름으로 매핑 (get_missing에 있던 것과 동일하게 맞춤)
+
     friendly_names = {
         "category": "문의 분류", "region": "관심 지역", "target": "현재 상황",
         "product_category": "금융 상품 종류", "special_condition": "우대 조건",
         "housing_type": "주택 형태", "residence_requirement": "거주 요건"
     }
     
-    # "문의 분류는 대출, 지역은 서울로 확인했습니다." 식의 요약 텍스트 생성
+    # 예시 가이드라인 추가
+    examples = {
+        "문의 분류": "예: '주택 정책 알려줘', '대출 알아보고 싶어'",
+        "관심 지역": "예: '서울', '경기도 수원시'",
+        "현재 상황": "예: '사회초년생', '신혼부부', '대학생'",
+        "금융 상품 종류": "예: '주택전세자금대출', '구입자금대출'",
+        "주택 형태": "예: '임대주택', '분양주택'"
+    }
+    
+    # 부족한 항목들에 대한 예시 추출
+    missing_examples = [f"{m} ({examples.get(m, '자유롭게 입력해주세요')})" for m in missing]
+    
     summary_text = ", ".join([f"{friendly_names.get(k, k)}: {v}" for k, v in known_info.items()])
 
     prompt = f"""
-    현재까지 사용자가 제공한 정보: {summary_text}
+    현재까지 파악된 정보: {summary_text}
+    사용자가 대답해야 할 부족한 정보: {', '.join(missing)}
     
-    부족한 정보: {', '.join(missing)}
-    
-    사용자에게 다음과 같이 말해줘:
-    1. 먼저 위에서 정리한 '제공해주신 정보'를 요약해서 확인시켜줘.
-    2. 그 다음 부족한 정보({', '.join(missing)})를 친절하게 물어봐.
+    사용자에게 다음과 같이 상담사처럼 대화해줘:
+    1. 파악된 정보를 언급하며 공감해줘.
+    2. 부족한 정보({', '.join(missing)})를 물어봐줘.
+    3. **핵심**: 사용자가 어떻게 대답해야 할지 모르지 않도록, 괄호 안에 있는 예시({', '.join(missing_examples)})를 활용해 "이렇게 말씀해주시면 돼요"라고 구체적인 대화 예시를 하나만 들어줘.
     
     주의사항:
-    - 괄호, JSON 필드명 같은 기술 용어 절대 금지.
-    - 상담사가 말하듯이 자연스럽게.
+    - JSON 필드명(category 등)은 절대 말하지 마.
+    - 아주 친절하고 쉬운 말로 해.
     - 반드시 JSON 형식으로 'msg' 키에 담아서 반환해.
     """
     
-    result_json = json.loads(call(prompt))
-    return result_json.get("msg", f"제공해주신 내용은 잘 확인했습니다. 나머지 {', '.join(missing)}에 대해서도 알려주세요.")
+    try:
+        result_json = json.loads(call(prompt))
+        return result_json.get("msg", f"다음 정보를 알려주세요: {', '.join(missing)}")
+    except:
+        return f"현재 {', '.join(missing)} 정보가 더 필요합니다. 알려주시면 바로 검색해 드릴게요!"
 
 def ask_llm(user_text):
     extracted = extract_info(user_text)
