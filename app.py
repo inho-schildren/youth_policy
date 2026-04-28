@@ -88,7 +88,7 @@ st.markdown("""
         padding: 0.85rem; border-radius: 12px; margin-bottom: 1rem;
     }
     .column-header.housing {
-        background: rgba(167, 139, 250, 0.15); color: #a78bfa;
+        background: rgba(167, 139, 250, 0.15); color: #e2e8f0;
         border: 1.5px solid rgba(167, 139, 250, 0.35);
     }
     .column-header.finance {
@@ -175,9 +175,9 @@ st.markdown("""
     .pros-box ul, .cons-box ul { margin: 0; padding-left: 1.3rem; color: #cbd5e1; font-size: 0.95rem; line-height: 1.8; }
     .report-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.98rem; }
     .report-table th {
-        background: rgba(167,139,250,0.15); color: #a78bfa;
+        background: rgba(255,255,255,0.1); color: #f1f5f9;
         padding: 0.85rem 1rem; text-align: left;
-        border-bottom: 2px solid rgba(167,139,250,0.3); font-weight: 700; font-size: 0.95rem;
+        border-bottom: 2px solid rgba(255,255,255,0.2); font-weight: 700; font-size: 0.95rem;
     }
     .report-table td {
         padding: 0.85rem 1rem; color: #cbd5e1;
@@ -207,10 +207,26 @@ st.markdown("""
         border-radius: 12px !important; color: #e2e8f0 !important;
         padding: 0.95rem 1.2rem !important; font-size: 1.1rem !important; font-weight: 500 !important;
     }
-    .stTextInput > div > div > input:focus {
-        border-color: #a78bfa !important;
-        box-shadow: 0 0 0 3px rgba(167,139,250,0.2) !important;
+    /* input focus — form 포함, 모든 기본 테두리 제거 후 연한 초록만 */
+    [data-baseweb="input"] {
+        border: 1.5px solid rgba(255,255,255,0.15) !important;
+        box-shadow: none !important;
+        transition: border-color 0.15s, box-shadow 0.15s;
     }
+    [data-baseweb="input"]:focus-within {
+        border: 1.5px solid #6ee7b7 !important;
+        box-shadow: 0 0 0 3px rgba(110,231,183,0.15) !important;
+    }
+    input:focus, input:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    /* st.form 기본 빨간 테두리 제거 */
+    [data-testid="stForm"] [data-baseweb="input"]:focus-within {
+        border: 1.5px solid #6ee7b7 !important;
+        box-shadow: 0 0 0 3px rgba(110,231,183,0.15) !important;
+    }
+    [data-testid="stFormSubmitButton"] ~ div [data-baseweb="input"] { box-shadow: none !important; }
     .stButton > button {
         background: linear-gradient(135deg, #a78bfa, #60a5fa) !important;
         color: white !important; border: none !important;
@@ -336,7 +352,7 @@ def render_chat_history():
 def render_policy_card_vertical(rank, title, policy_type, reason, content):
     rank_class  = {1: "gold", 2: "silver", 3: "bronze"}.get(rank, "silver")
     rank_label  = {1: "🥇 1순위", 2: "🥈 2순위", 3: "🥉 3순위"}.get(rank, f"{rank}순위")
-    type_color  = "#a78bfa" if policy_type == "주거" else "#34d399"
+    type_color  = "#93c5fd" if policy_type == "주거" else "#34d399"
     type_label  = "🏘️ 주거 정책" if policy_type == "주거" else "💳 금융 정책"
 
     card_html = f"""
@@ -381,8 +397,8 @@ def render_report(data):
         # ── 📋 정책별 분석 요약 테이블 ─────────────────────
         rows = "".join([
             f'<tr>'
-            f'<td><strong style="color:#a78bfa">{p.get("title","-")}</strong></td>'
-            f'<td style="color:#{"34d399" if p.get("type")=="금융" else "a78bfa"}">{p.get("type","-")}</td>'
+            f'<td><strong style="color:#e2e8f0">{p.get("title","-")}</strong></td>'
+            f'<td style="color:#{"34d399" if p.get("type")=="금융" else "60a5fa"}">{p.get("type","-")}</td>'
             f'<td>{p.get("core","-")}</td>'
             f'</tr>'
             for p in policy_analysis
@@ -391,18 +407,18 @@ def render_report(data):
         <div class="report-section-card">
             <div class="report-section-title">📋 정책별 분석 요약</div>
             <table class="report-table">
-                <thead><tr><th>정책명</th><th>유형</th><th>핵심 내용</th></tr></thead>
+                <thead><tr><th style="width:28%">정책명</th><th style="width:12%">유형</th><th>핵심 내용</th></tr></thead>
                 <tbody>{rows}</tbody>
             </table>
         </div>
         """, unsafe_allow_html=True)
 
-        # ── 장단점: 세로로 3개 나란히 (st.columns 사용) ───
+        # ── 장단점: 가로 3열 나란히 ────────────────────────
         cols = st.columns(len(policy_analysis)) if len(policy_analysis) > 1 else [st.container()]
         for col, p in zip(cols, policy_analysis):
             pros = render_list_html(p.get("pros", []))
             cons = render_list_html(p.get("cons", []))
-            type_color = "#34d399" if p.get("type") == "금융" else "#a78bfa"
+            type_color = "#34d399" if p.get("type") == "금융" else "#60a5fa"
             with col:
                 st.markdown(f"""
                 <div class="report-section-card" style="height:100%;">
@@ -418,10 +434,42 @@ def render_report(data):
                 </div>
                 """, unsafe_allow_html=True)
 
+    # ── 정책 조합 전략 ─────────────────────────────────────
+    combination = data.get("combination", "")
+    if combination:
+        st.markdown(f"""
+        <div class="report-section-card">
+            <div class="report-section-title">🔗 정책 조합 전략</div>
+            <div class="strategy-box">{combination}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ── 주의사항 및 리스크 ─────────────────────────────────
+    risks = data.get("risks", "")
+    if risks:
+        risks_html = render_list_html(risks) if isinstance(risks, list) else risks
+        st.markdown(f"""
+        <div class="report-section-card">
+            <div class="report-section-title">⚠️ 주의사항 및 리스크</div>
+            <div class="warning-box">{risks_html}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ── 종합 추천 및 행동 계획 ─────────────────────────────
+    recommendation = data.get("recommendation", "")
+    if recommendation:
+        st.markdown(f"""
+        <div class="report-section-card">
+            <div class="report-section-title">🎯 종합 추천 및 행동 계획</div>
+            <div class="recommend-box">{recommendation}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
 
 
 
 # ── UI ────────────────────────────────────────────────────
+
 st.markdown('<div class="main-title">🏠 청년 주택 정책 어시스턴트</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-title">나에게 맞는 주거·금융 정책을 찾고 종합 보고서를 받아보세요</div>', unsafe_allow_html=True)
 st.divider()
@@ -430,12 +478,12 @@ st.divider()
 render_chat_history()
 
 # ── 입력 폼 ───────────────────────────────────────────────
-with st.form(key='search_form', clear_on_submit=True):
+with st.form(key="search_form", clear_on_submit=True):
     col_input, col_btn = st.columns([0.8, 0.2])
     with col_input:
         query = st.text_input(
             label="질문",
-            placeholder="예) 금천구에 거주 예정인 신혼부부인데 주거 정책 알려줘",
+            placeholder="질문을 입력해주세요.",
             label_visibility="collapsed",
             key="query_input"
         )
