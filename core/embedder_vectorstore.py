@@ -29,8 +29,7 @@ def get_huggingface_embedder():
 
 # CHROMA
 def embed_and_save_chroma(chunks, embedder,
-                          persist_dir=CHROMA_DIR,
-                          collection_name="youth_housing_policy"):
+    persist_dir=CHROMA_DIR, collection_name="youth_housing_policy"):
     vectorstore = None
     for i in range(0, len(chunks), BATCH_SIZE):
         batch = chunks[i:i + BATCH_SIZE]
@@ -59,8 +58,7 @@ def load_chroma(embedder,
 
 
 # FAISS
-def embed_and_save_faiss(chunks, embedder,
-                         persist_dir=FAISS_DIR):
+def embed_and_save_faiss(chunks, embedder, persist_dir=FAISS_DIR):
     vectorstore = None
     for i in range(0, len(chunks), BATCH_SIZE):
         batch = chunks[i:i + BATCH_SIZE]
@@ -83,15 +81,11 @@ def load_faiss(embedder, persist_dir=FAISS_DIR):
 # 하위 호환
 def housing_embed_and_save(chunks):
     embedder = get_openai_embedder()
-    return embed_and_save_chroma(chunks, embedder,
-                                  persist_dir=CHROMA_DIR,
-                                  collection_name="youth_housing_policy")
+    return embed_and_save_chroma(chunks, embedder, persist_dir=CHROMA_DIR, collection_name="youth_housing_policy")
 
 def housing_load_vectorstore():
     embedder = get_openai_embedder()
-    return load_chroma(embedder,
-                       persist_dir=CHROMA_DIR,
-                       collection_name="youth_housing_policy")
+    return load_chroma(embedder, persist_dir=CHROMA_DIR, collection_name="youth_housing_policy")
 
 def finance_embed_and_save(chunks):
     embedder = get_openai_embedder()
