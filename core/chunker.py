@@ -4,27 +4,6 @@ from langchain.schema import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_text_splitters import CharacterTextSplitter
 from config import EMBEDDING_MODEL, OPENAI_API_KEY
-from core.data_loader import collect_documents
-
-# splitter = RecursiveCharacterTextSplitter(
-#     chunk_size=500,
-#     chunk_overlap=50
-# )
-
-# def chunk_documents(documents):
-#     chunks = []
-#     for doc in documents:
-#         if not doc.page_content.strip():
-#             continue
-#         split_texts = splitter.split_text(doc.page_content)
-#         for text in split_texts:
-#             chunks.append(Document(
-#                 page_content=text,
-#                 metadata=doc.metadata
-#             ))
-#     print(f"✅ 청킹 완료: {len(documents)}개 → {len(chunks)}개 청크")
-#     return chunks
-
 
 embedding = OpenAIEmbeddings(
     model=EMBEDDING_MODEL,
@@ -56,12 +35,12 @@ def chunk_documents(documents):
     print(f"✅ 청킹 완료: {len(documents)}개 → {len(chunks)}개 청크")
     return chunks
 
-def finance_chunking_recur(all_pages: list) -> list:
-    from langchain_text_splitters import RecursiveCharacterTextSplitter
-    
+# 기본 recursive
+def finance_chunking_recur(all_pages):
+
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50,
+        chunk_size=800,
+        chunk_overlap=150,
         length_function=len,
         is_separator_regex=False,
         separators=[
@@ -72,34 +51,68 @@ def finance_chunking_recur(all_pages: list) -> list:
     )
 
     chunks = text_splitter.split_documents(all_pages)
-    print(f"총 청크 수: {len(chunks)}")
+    chunks = [c for c in chunks if len(c.page_content.strip()) > 100]
+    print(f"✅ 금융 recursive 청킹 완료: {len(all_pages)}개 → {len(chunks)}개 청크")
     return chunks
 
-def finance_chunking_character(raw_data_path: str) -> list:
+# 파일별 다른 구분자 활용 recursive
+def finance_chunking_recur_v2(all_pages):
+    """recursive v2 - 파일명으로 문서 유형 감지 후 다른 separator 적용"""
+
+    NOTICE_KEYWORDS = ["공고문", "FAQ"]
+    notice_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=800,
+        chunk_overlap=150,
+        separators=[
+            "\nQ", "\n[", "\n□", "\n■",
+            "\n\n", "\nㅇ", "\n◦", "\n※",    
+            "\n①", "\n②", "\n③", "\n④", "\n⑤",
+            "\n1.", "\n2.", "\n3.", "\n4.", "\n5.",
+            "\n-", "\n", ". ", " ",
+        ]
+    )
+
+    # 일반 금융상품 separator
+    product_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=800,
+        chunk_overlap=150,
+        separators=[
+            "\n■", "\n\n", "\n▪",
+            "\n•", "\n-", "\n",
+            ". ", " ",
+        ]
+    )
+
+    def is_notice(page):
+        source = page.metadata.get("source", "")
+        return any(kw in source for kw in NOTICE_KEYWORDS)
+
+    chunks = []
+    for page in all_pages:
+        splitter = notice_splitter if is_notice(page) else product_splitter
+        split = splitter.split_documents([page])
+        chunks.extend(split)
+
+    chunks = [c for c in chunks if len(c.page_content.strip()) > 100]
+    print(f"✅ recursive v2 청킹 완료: {len(all_pages)}개 → {len(chunks)}개 청크")
+    return chunks
+def finance_chunking_character(all_pages):
     text_splitter = CharacterTextSplitter(
         separator="\n",
-        chunk_size=500,
-        chunk_overlap=50,
+        chunk_size=800,
+        chunk_overlap=150,
         length_function=len
     )
 
-    documents = collect_documents(raw_data_path)
-    all_pages = []
-    for doc in documents:
-        all_pages.extend(doc["pages"])
-
     chunks = text_splitter.split_documents(all_pages)
+    chunks = [c for c in chunks if len(c.page_content.strip()) > 100]
     print(f"글자수 기반 총 청크 수: {len(chunks)}")
     return chunks
 
-def run_finance_chunking_semantic(raw_data_path: str) -> list:
+def finance_chunking_semantic(all_pages):
     text_splitter = SemanticChunker(OpenAIEmbeddings())
 
-    documents = collect_documents(raw_data_path)
-    all_pages = []
-    for doc in documents:
-        all_pages.extend(doc["pages"])
-
     chunks = text_splitter.split_documents(all_pages)
+    chunks = [c for c in chunks if len(c.page_content.strip()) > 100]
     print(f"의미 기반 총 청크 수: {len(chunks)}")
     return chunks
