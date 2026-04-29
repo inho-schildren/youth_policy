@@ -6,7 +6,7 @@ from langchain.schema import Document
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
 from dotenv import load_dotenv
-from core.data_loader import collect_documents
+from core.finance_loader import collect_documents
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
