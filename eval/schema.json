@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "YouthPolicyEvalRow",
+  "type": "object",
+  "required": ["input", "question", "answer", "contexts", "ground_truth", "user_profile", "expected_policies"],
+  "properties": {
+    "input":        {"type": "string", "description": "원본 사용자 발화"},
+    "question":     {"type": "string", "description": "정규화된 질문(체인 입력)"},
+    "answer":       {"type": "string", "description": "체인이 생성한 보고서 텍스트(평가 시점에 채워짐)"},
+    "contexts":     {"type": "array", "items": {"type": "string"}, "description": "retriever가 반환한 문서 본문 리스트"},
+    "ground_truth": {"type": "string", "description": "정답 보고서/요약 (전문가 작성)"},
+    "user_profile": {
+      "type": "object",
+      "properties": {
+        "age": {"type": "integer"},
+        "income_won": {"type": "integer"},
+        "region": {"type": "string"},
+        "no_house": {"type": "boolean"},
+        "housing_type": {"type": "string", "enum": ["전세","월세","임대","분양","자가","미정"]},
+        "target": {"type": "string", "enum": ["청년","신혼부부","대학생","사회초년생"]}
+      },
+      "required": ["age","region","no_house","housing_type","target"]
+    },
+    "expected_policies": {
+      "type": "array",
+      "description": "정답 정책 메타(정책 적합성 평가용)",
+      "items": {
+        "type": "object",
+        "required": ["title","type"],
+        "properties": {
+          "title":            {"type": "string"},
+          "type":             {"type": "string", "enum": ["주거","금융"]},
+          "valid_until":      {"type": "string", "format": "date", "description": "최신성 판정 기준"},
+          "must_check":       {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}
