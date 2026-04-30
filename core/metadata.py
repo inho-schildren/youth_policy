@@ -182,3 +182,43 @@ def run_finance_metadata_extraction(raw_data_path: str, save_path: str = "./data
         all_metadata.append(meta)
     save_metadata(all_metadata, save_path)
     return all_metadata
+
+FINANCE_INJECT_KEYS = [
+    "doc_id", "title", "category", "summary", "tags", "target",
+    "age_min", "age_max", "marital_status", "requires_no_house",
+    "income_condition", "income_max_man", "asset_max_man",
+    "region", "special_condition", "is_first_purchase", "loan_limit_man"
+]
+
+def enrich_finance_documents(
+    docs_path: str = "./data/finance_documents.json",
+    meta_path: str = "./data/finance_metadata.json",
+    save_path: str = "./data/finance_documents.json",
+) -> list:
+    with open(docs_path, "r", encoding="utf-8") as f:
+        docs = json.load(f)
+    with open(meta_path, "r", encoding="utf-8") as f:
+        meta_list = json.load(f)
+
+    meta_map = {}
+    for m in meta_list:
+        for fname in m["source"]:
+            meta_map[fname] = m
+
+    enriched = 0
+    for doc in docs:
+        src = doc["metadata"].get("source", "")
+        fname = os.path.basename(src.replace("\\", "/"))
+        if fname in meta_map:
+            m = meta_map[fname]
+            for key in FINANCE_INJECT_KEYS:
+                if key in m:
+                    doc["metadata"][key] = m[key]
+            doc["metadata"]["policy_type"] = "finance"
+            enriched += 1
+
+    with open(save_path, "w", encoding="utf-8") as f:
+        json.dump(docs, f, ensure_ascii=False, indent=2)
+
+    print(f"✅ 메타데이터 주입 완료: {enriched}/{len(docs)}개")
+    return docs
