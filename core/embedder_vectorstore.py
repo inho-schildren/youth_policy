@@ -13,18 +13,16 @@ load_dotenv()
 
 BATCH_SIZE = 100
 
-def get_openai_embedder():
+def get_openai_embedder_small():
     return OpenAIEmbeddings(
         model = EMBEDDING_MODEL,
         openai_api_key=OPENAI_API_KEY
     )
 
-def get_huggingface_embedder():
-    return HuggingFaceEmbeddings(
-        model_name = "BAAI/bge-m3",
-        model_kwargs={"device": "cpu"},
-        encode_kwargs={"normalize_embeddings": True}
-
+def get_openai_embedder_large():
+    return OpenAIEmbeddings(
+        model = "text-embedding-3-large",
+        openai_api_key=OPENAI_API_KEY
     )
 
 # CHROMA
@@ -80,21 +78,21 @@ def load_faiss(embedder, persist_dir=FAISS_DIR):
 
 # 하위 호환
 def housing_embed_and_save(chunks):
-    embedder = get_openai_embedder()
+    embedder = get_openai_embedder_small()
     return embed_and_save_chroma(chunks, embedder, persist_dir=CHROMA_DIR, collection_name="youth_housing_policy")
 
 def housing_load_vectorstore():
-    embedder = get_openai_embedder()
+    embedder = get_openai_embedder_small()
     return load_chroma(embedder, persist_dir=CHROMA_DIR, collection_name="youth_housing_policy")
 
 def finance_embed_and_save(chunks):
-    embedder = get_openai_embedder()
+    embedder = get_openai_embedder_small()
     return embed_and_save_chroma(chunks, embedder,
                                   persist_dir=FINANCE_CHROMA_DIR,
                                   collection_name="youth_finance_policy")
 
 def finance_load_vectorstore():
-    embedder = get_openai_embedder()
+    embedder = get_openai_embedder_small()
     return load_chroma(embedder,
                        persist_dir=FINANCE_CHROMA_DIR,
                        collection_name="youth_finance_policy")
