@@ -44,7 +44,7 @@ def run_pipeline():
 
         save_metadata(meta_list, META_PATH)
         save_documents(documents, DOCS_PATH)
-        print(f"✅ Document 생성 완료: {len(documents)}개\n")
+        print("✅ Document 생성 완료\n")
 
     else:
         print("📂 기존 output_v2.json 로드")
@@ -69,10 +69,10 @@ def run_pipeline():
 
     # ── 4. Retriever + Reranker ───────────────────────────
     retriever = housing_retriever(chunks)
-    reranker  = get_cross_encoder_reranker(retriever)
+    # reranker  = get_cross_encoder_reranker(retriever)
 
-    print("✅ 파이프라인 준비 완료\n")
-    return reranker
+    print("✅ 파이프라인 준비 완료 (Reranker 제외)\n")
+    return retriever
 
 def run_finance_pipeline():
     # ── 1. PDF → Document ─────────────────────────────────
@@ -118,7 +118,7 @@ def run_finance_pipeline():
 
     # ── 4. Retriever ──────────────────────────────────────
     retriever = finance_retriever(chunks)
-    reranker = get_cross_encoder_reranker(retriever)
+    # reranker = get_cross_encoder_reranker(retriever)
 
-    print("✅ 금융 파이프라인 준비 완료\n")
-    return reranker
+    print("✅ 금융 파이프라인 준비 완료 (Reranker 제외)\n")
+    return retriever

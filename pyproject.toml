@@ -85,5 +85,6 @@ dependencies = [
     "langchain-pinecone>=0.2.3",
     "setuptools<72",
     "gpt4all>=2.8.2",
-    "umap-learn>=0.5,<1"
+    "umap-learn>=0.5,<1",
+    "duckduckgo-search>=8.1.1",
 ]

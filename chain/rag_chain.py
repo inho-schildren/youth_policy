@@ -42,6 +42,7 @@ top3_prompt = ChatPromptTemplate.from_template("""
 - top3 배열은 반드시 3개를 목표로 하되, 후보가 부족하면 가능한 만큼만 출력한다.
 - rank는 1, 2, 3 순서로 부여한다.
 - type은 반드시 "주거" 또는 "금융" 중 하나만 사용한다.
+- url 필드에는 후보 정책의 [신청주소] 또는 [URL] 정보를 정확히 기입한다. 정보가 없으면 "정보 없음"이라고 쓴다.
 - 아래 JSON 예시의 type 값 "주거"는 예시일 뿐이며, 실제 출력에서는 후보 정책 유형에 맞춰 "주거" 또는 "금융" 중 정확히 하나를 넣는다.
 - reason은 사용자 질문과 정책 조건이 맞는 지점을 2문장으로 구체적으로 설명한다.
 - content는 대상, 지원 내용, 소득/자산 조건, 신청기간, 사용자가 확인할 사항을 3~4문장으로 압축한다.
@@ -54,6 +55,7 @@ top3_prompt = ChatPromptTemplate.from_template("""
             "rank": 1,
             "type": "주거",
             "title": "반드시 후보 정책의 [제목] 필드값을 그대로 사용",
+            "url": "후보 문서에 포함된 신청주소 URL",
             "reason": "사용자 상황과 정책이 맞는 이유 2문장",
             "content": "대상, 지원 내용, 소득/자산 조건, 신청기간, 확인 필요 사항을 포함한 3~4문장",
             "fit_score": "상/중/하",
@@ -130,6 +132,7 @@ def build_chain(housing_retriever, finance_retriever):
             income  = doc.metadata.get('income_condition', '')
             support = doc.metadata.get('support_type', '')
             period  = doc.metadata.get('application_period', '')
+            url     = doc.metadata.get('source_url', doc.metadata.get('url', '정보 없음'))
             candidates += (
                 f"[주거정책 {i+1}]\n"
                 f"제목: {title}\n"
@@ -138,6 +141,7 @@ def build_chain(housing_retriever, finance_retriever):
                 f"소득조건: {income}\n"
                 f"지원유형: {support}\n"
                 f"신청기간: {period}\n"
+                f"신청주소: {url}\n"
                 f"내용: {doc.page_content[:700]}\n\n"
             )
         for i, doc in enumerate(finance_docs):
@@ -147,6 +151,7 @@ def build_chain(housing_retriever, finance_retriever):
             income  = doc.metadata.get('income_condition', '')
             support = doc.metadata.get('support_type', '')
             period  = doc.metadata.get('application_period', '')
+            url     = doc.metadata.get('source_url', doc.metadata.get('url', '정보 없음'))
             candidates += (
                 f"[금융정책 {i+1}]\n"
                 f"제목: {title}\n"
@@ -155,6 +160,7 @@ def build_chain(housing_retriever, finance_retriever):
                 f"소득조건: {income}\n"
                 f"지원유형: {support}\n"
                 f"신청기간: {period}\n"
+                f"신청주소: {url}\n"
                 f"내용: {doc.page_content[:700]}\n\n"
             )
 
@@ -408,3 +414,64 @@ def ask_llm(user_text):
         # 수정된 부분: state를 함께 전달
         msg = ask_missing(get_missing(), state) 
         return False, msg
+
+
+
+# -==============================================================================================================
+import re
+from duckduckgo_search import DDGS
+
+def get_web_search_url(policy_name):
+    if not policy_name or policy_name == "주거 정책":
+        return "https://www.myhome.go.kr/"
+
+    # 1. 텍스트에서 키워드만 추출 (유사도 검사용)
+    # 숫자(연도), 특수문자, 의미 없는 단어(모집, 공고 등)를 제거
+    clean_name = re.sub(r'\d+', '', policy_name) # 숫자 제거
+    clean_name = re.sub(r'[^\w\s]', ' ', clean_name) # 특수문자 제거
+    
+    # 2글자 이상의 핵심 키워드만 리스트로 만듦
+    stop_words = ['모집', '공고', '안내', '수시', '입주자', '신청', '기준']
+    keywords = [w for w in clean_name.split() if len(w) > 1 and w not in stop_words]
+    
+    search_query = " ".join(keywords) # 검색용 키워드 조합
+
+    trusted_domains = ["go.kr", "or.kr", "seoul.go.kr", "i-sh.co.kr", "lh.or.kr"]
+    
+    try:
+        with DDGS() as ddgs:
+            # 검색어에 '공식 홈페이지'를 붙여 결과 10개를 가져옴
+            results = list(ddgs.text(f"{search_query} 공식 홈페이지", max_results=10))
+            
+            best_res = None
+            max_score = 0
+
+            for res in results:
+                title = res['title'].lower()
+                url = res['href'].lower()
+                
+                # 유사도 점수 계산 로직
+                current_score = 0
+                for kw in keywords:
+                    if kw in title: current_score += 1 # 제목에 키워드 포함 시 +1점
+                
+                # 가점: 공식 도메인인 경우 대폭 가산점 (+5점)
+                if any(domain in url for domain in trusted_domains):
+                    current_score += 5
+                
+                # 감점: 스팸 의심 단어 포함 시 감점 (-10점)
+                if any(bad in title for bad in ["달력", "휴일", "운세"]):
+                    current_score -= 10
+
+                # 가장 높은 점수를 받은 결과 선택
+                if current_score > max_score:
+                    max_score = current_score
+                    best_res = res['href']
+            
+            if best_res:
+                return best_res
+
+    except Exception as e:
+        print(f"Search Error: {e}")
+    
+    return "https://www.myhome.go.kr/"

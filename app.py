@@ -1,8 +1,23 @@
+import sys
+import builtins
+
+# Windows 환경 cp949 인코딩 에러(UnicodeEncodeError) 방지용 print 패치
+_original_print = builtins.print
+def _safe_print(*args, **kwargs):
+    try:
+        _original_print(*args, **kwargs)
+    except UnicodeEncodeError:
+        enc = sys.stdout.encoding or 'utf-8'
+        safe_args = [str(arg).encode(enc, 'replace').decode(enc) for arg in args]
+        _original_print(*safe_args, **kwargs)
+
+builtins.print = _safe_print
+
 import streamlit as st
 import json
 import re
 from pipeline import run_pipeline, run_finance_pipeline
-from chain.rag_chain import build_chain, ask_llm, state
+from chain.rag_chain import build_chain, ask_llm, state, get_web_search_url
 
 st.set_page_config(
     page_title="청년 주택 정책 검색",
@@ -349,7 +364,7 @@ def render_chat_history():
     components.html(html, height=min(80 + n * 75, 320), scrolling=True)
 
 # ── 정책 카드 렌더링 (가로 배치용 - 세로형) ────────────────
-def render_policy_card_vertical(rank, title, policy_type, reason, content):
+def render_policy_card_vertical(rank, title, policy_type, reason, content, url=None):
     rank_class  = {1: "gold", 2: "silver", 3: "bronze"}.get(rank, "silver")
     rank_label  = {1: "🥇 1순위", 2: "🥈 2순위", 3: "🥉 3순위"}.get(rank, f"{rank}순위")
     type_color  = "#93c5fd" if policy_type == "주거" else "#34d399"
@@ -368,9 +383,15 @@ def render_policy_card_vertical(rank, title, policy_type, reason, content):
             <span class="policy-section-label">📄 핵심 내용</span>
             <span class="policy-section-value">{content}</span>
         </div>
+        <div class="policy-section">
+            <span class="policy-section-label">🔗 관련 URL</span>
+            <span class="policy-section-value"><a href="{url}" target="_blank" style="color: #34d399; text-decoration: underline;">{url}</a></span>
+        </div>
     </div>
     """
     st.markdown(card_html, unsafe_allow_html=True)
+
+    
 
 # ── 리스트 렌더링 헬퍼 ────────────────────────────────────
 def render_list_html(items):
@@ -528,12 +549,31 @@ if "pending_result" in st.session_state:
         })
 
     try:
-        json_str  = extract_json(top3_raw)
+        # 1. JSON 추출 및 파싱
+        json_str = extract_json(top3_raw)
         top3_data = json.loads(json_str)
         top3_list = top3_data.get("top3", [])
-    except:
+
+        if top3_list:
+            for item in top3_list:
+                current_url = item.get("url", "").strip()
+                policy_name = item.get("title", "주거 정책")
+
+                # 2. URL이 없거나 '정보 없음'인 경우 실시간 웹 검색 수행
+                if not current_url or "정보 없음" in current_url:
+                    new_url = get_web_search_url(policy_name)
+                    item["url"] = new_url
+                else:
+                    # 3. 기존 URL이 있는 경우 프로토콜 확인만
+                    if not current_url.startswith(("http://", "https://")):
+                        item["url"] = f"https://{current_url}"
+                    else:
+                        item["url"] = current_url
+
+    except Exception as e:
+        st.error(f"데이터 처리 중 오류 발생: {e}")
+        st.write("원문 데이터 확인:", top3_raw)
         top3_list = []
-        st.warning("TOP3 파싱 실패")
 
     top3_sorted = sorted(top3_list, key=lambda x: x.get("rank", 99))[:3]
     if top3_sorted:
@@ -545,7 +585,8 @@ if "pending_result" in st.session_state:
                     title       = policy.get("title", "-"),
                     policy_type = policy.get("type", "-"),
                     reason      = policy.get("reason", "-"),
-                    content     = policy.get("content", "-")
+                    content     = policy.get("content", "-"),
+                    url         = policy.get("url", None)
                 )
 
     st.divider()

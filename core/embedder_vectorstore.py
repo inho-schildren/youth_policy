@@ -30,10 +30,18 @@ def get_huggingface_embedder():
 # CHROMA
 def embed_and_save_chroma(chunks, embedder,
     persist_dir=CHROMA_DIR, collection_name="youth_housing_policy"):
+    
+    # ChromaDB는 메타데이터에 리스트를 허용하지 않으므로 문자열로 변환
+    for chunk in chunks:
+        chunk.metadata = {
+            k: ", ".join(map(str, v)) if isinstance(v, list) else v 
+            for k, v in chunk.metadata.items()
+        }
+
     vectorstore = None
     for i in range(0, len(chunks), BATCH_SIZE):
         batch = chunks[i:i + BATCH_SIZE]
-        print(f"  🔄 Chroma 임베딩 중... [{i+1}/{len(chunks)}]")
+        print(f"  Chroma Embedding... [{i+1}/{len(chunks)}]")
         if vectorstore is None:
             vectorstore = Chroma.from_documents(
                 documents=batch,
@@ -44,7 +52,7 @@ def embed_and_save_chroma(chunks, embedder,
         else:
             vectorstore.add_documents(batch)
         time.sleep(0.5)
-    print(f"✅ Chroma 임베딩 완료 → {persist_dir} ({len(chunks)}개 청크)")
+    print(f"✅ Chroma Embedding Done -> {persist_dir} ({len(chunks)} chunks)")
     return vectorstore
 
 def load_chroma(embedder,

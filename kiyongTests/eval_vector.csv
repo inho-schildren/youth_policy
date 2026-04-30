@@ -1,0 +1,123 @@
+user_input,retrieved_contexts,response,reference,faithfulness,answer_relevancy,context_precision,context_recall
+서울시에서 청년 부동산 중개보수 및 이사비 지원사업은 뭐에요?,"['2. 사업소득자 : 본인 또는 배우자의 폐업(퇴직 포함)한 경우', '2. 사업소득자 : 본인 또는 배우자의 폐업(퇴직 포함)한 경우', '1. 근로소득자 : 본인 또는 배우자의 실직(휴직 포함)한 경우', '1. 근로소득자 : 본인 또는 배우자의 실직(휴직 포함)한 경우']","서울시의 청년 부동산 중개보수 및 이사비 지원사업은 청년층이 주거 안정성을 높이고, 주거 비용 부담을 줄이기 위해 마련된 지원 프로그램입니다. 이 사업은 주로 청년들이 새로운 주거지를 찾을 때 발생하는 중개수수료와 이사비용을 지원하는 내용을 포함하고 있습니다.
+
+지원 대상은 일반적으로 청년층(대개 19세에서 39세 사이)으로, 일정 소득 기준을 충족해야 하며, 지원 금액이나 조건은 매년 변동될 수 있습니다. 이 사업을 통해 청년들이 보다 쉽게 주거지를 이동하고, 안정적인 주거 환경을 마련할 수 있도록 돕는 것이 목적입니다.
+
+자세한 내용은 서울시 공식 웹사이트나 관련 부서에 문의하여 확인하는 것이 좋습니다.","서울시는 청년가구의 주거비 부담을 덜어주기 위해 2026년 청년 부동산 중개보수 및 이사비 지원사업을 모집하고 있습니다. 지원대상은 '24.1.1. 이후 서울시로 전입하거나 서울시 내에서 이사 후 전입신고를 완료한 만 19세에서 39세의 청년가구입니다. 총 8,000명이 지원받을 수 있으며, 최대 40만원 한도 내에서 실비 지원이 이루어집니다.",0.0,0.5828204201847654,0.0,0.0
+"What are the eligibility criteria for young residents in Seoul applying for housing support by the deadline of April 14, 2026?","['- 11 -Q16신청인 정보 등록에서 주민번호를 입력하고 주민번호 확인 시, \n기초생활수급자라고 뜨는데 , 저는 기초생활수급을 받고 \n있지 않아요 . 어떻게 하나요 ? \nA◦ 기초생활수급자 여부는 주민 등록된 동주민센터에서 결정 \n및 전산 등록을 합니다. 청년월세지원 시스템에서는 주민\n번호가 행정안전부 기초생활수급자 데이터 시스템에 자동 \n연동되어 기초생활수급자 여부가 조회되는 것입니다.\n따라서 기초생활수급자 여부 관련하여 해당(주소지 ) 동주민\n센터에 문의 및 확인 바랍니다.\n\uf000 신청방법 관련 Q&A\nQ17청년 월세 지원 신청과 관련하여 소식을 받고 싶은데 , \n방법이 어떻게 될까요 ?(이메일 , 문자 등)\nA◦ 청년 월세 지원 신청과 관련한 정보는 서울주거포털\n(https://housing.seoul.go.kr) 에서 확인 가능합니다 .\n◦ 청년 월세 지원 사업과 관련하여 문자 알림 서비스는 \n없으며, 메일 알림 방법은 다음과 같습니다.', 'https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp 2/4', 'https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030603.jsp 2/2', 'https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020406.jsp 1/2']","To determine the eligibility criteria for young residents in Seoul applying for housing support, you would typically need to refer to the official guidelines provided by the relevant authorities, such as the Seoul Housing Portal or the Ministry of Land, Infrastructure and Transport. However, common eligibility criteria for housing support programs often include:
+
+1. **Age Requirement**: Applicants are usually required to be within a specific age range, often between 19 and 39 years old.
+
+2. **Residency**: Applicants must be residents of Seoul and provide proof of residency.
+
+3. **Income Level**: There may be income limits based on household size, which determine eligibility for support. Applicants may need to provide documentation of their income.
+
+4. **Housing Status**: Applicants may need to demonstrate their current housing situation, such as renting a home or living in a specific type of accommodation.
+
+5. **No Previous Support**: Some programs may require that applicants have not previously received similar housing support.
+
+6. **Other Criteria**: Additional criteria may include being a student, a job seeker, or having specific circumstances that warrant support (e.g., single-parent households).
+
+For the most accurate and detailed information, it is recommended to check the official Seoul Housing Portal or contact the relevant local government office.","To be eligible for housing support by the deadline of April 14, 2026, applicants must meet the following criteria: They must have moved to Seoul or changed their address within Seoul after January 1, 2024, and completed their residency registration by the application deadline. They can apply even if they have cohabitants such as parents, spouses, or siblings. The applicant must be the head of the household and the tenant listed on the lease agreement, with their residency registered at the location of the rental property. Foreigners and overseas citizens are not eligible. Additionally, applicants must be aged between 19 and 39, born between January 1, 1986, and December 31, 2007, and their household income must be at or below 150% of the median income. The health insurance premium amount for the household as of March 2026 must not exceed the specified health insurance premium for 150% of the median income.",0.2727272727272727,0.0,0.0,0.0
+What are the restrictions for applicants receiving support from 市 in Seoul?,"['※ 5천만원×5.0%÷12 개월+62만원=828,333 원→82만원(천원단위 절사)\nQ49보증금 월세 환산율을 5.0%로 적용하는 근거는 \n무엇인가요 ?\nA◦ 주택임대차보호법 (제7조의 2)에 의거 한국은행에서 공시한\n2024년도 말 기준금리 (3.0%)에 대통령령으로 정하는 \n이율(2%)을 더한 비율입니다 .', '○ 월세가 ‘없는’ 임대차계약 : 임대차계약서상 임차보증금 \n  ○ 월세가 ‘있는’ 임대차계약 : 전월세 전환율을 반영한  ‘환산 임차보증금 ’적용 \n    - 환산 임차보증금 = 월세보증금 + (월세 × 12개월÷전월세 전환율)', '※ 우대금리 적용 후 최종금리가 연 1.0% 미만인 경우에는 연 1.0%로 적용(단, 우대금리 적용 상한은 0.5%p로\n하되, 기초생활수급권자·차상위계층·한부모가구는 1.0%p, 다자녀가구는 0.7%p로 한다.26. 4. 24. 오전  12:39 대출안내  < 청년전용  버팀목전세자금  < 주택전세자금대출  < 개인상품  | 주택도시기금\nhttps://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020301.jsp 4/7', '☞ 상기 산정기준 순서대로 적용\n다. 감정평가서 이용 시\n적용대\n상- 임대인이 공시가격 등에 이의신청하여 감정평가(안내 바로가기)를 받은 경우 가목 및 나목에도 불구하고 우선 적용']","In Seoul, applicants receiving support from the city (市) for housing-related assistance, such as rental support or housing loans, typically face several restrictions. While the specific criteria can vary depending on the program, common restrictions may include:
+
+1. **Income Limits**: Applicants often need to meet certain income thresholds, which are usually set based on the average income levels in the area. This is to ensure that the support is directed towards low- to moderate-income households.
+
+2. **Residency Requirements**: Applicants may need to be residents of Seoul or have lived in the city for a specified period to qualify for assistance.
+
+3. **Household Composition**: The size and composition of the household can affect eligibility. For example, families with children, single-parent households, or elderly individuals may have different criteria.
+
+4. **Asset Limits**: There may be restrictions on the total value of assets that applicants can possess. This is to ensure that the support is provided to those who genuinely need it.
+
+5. **Previous Support**: Individuals who have previously received housing assistance may face restrictions on reapplying or may have to wait a certain period before they can apply again.
+
+6. **Creditworthiness**: For loan programs, applicants may need to demonstrate a certain level of creditworthiness or financial stability.
+
+7. **Specific Program Requirements**: Each program may have its own unique requirements, such as the type of housing (e.g., rental vs. purchase) or specific documentation needed to apply.
+
+It is advisable for potential applicants to check the specific guidelines of the program they are interested in, as these can change and may have additional criteria.","Applicants who have moved to Seoul or relocated within Seoul after January 1, 2022, and have received support for real estate brokerage fees or moving expenses from 市 or other institutions (such as central ministries or autonomous districts) are restricted from receiving additional benefits.",0.7391304347826086,0.8283003417847813,0.0,0.0
+What support can young adults get from SH for moving costs?,"['https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030603.jsp 2/2', 'https://www.khug.or.kr/hug/web/ig/lj/iglj000002.jsp?tabMenu=Y#none 1/3', '- 5 -단계 질문내용 페이지\n소득․\n재산\n요건Q58. 기준 중위소득 충족 여부는 어떻게 확인하나요 ? 22\nQ59. 건강보험료 납부(부과)액, 가구원 수 등은 어디에서 \n확인하나요 ?22\nQ60. 신청인이 아버지의 건강보험 피부양자로 등록된 경우 \n소득기준의 충족 여부는 어떻게 확인 하나요 ?22\nQ61. 소득 기준에 부모님 소득도 모두 포함되나요 ? 23\nQ62. 국민건강보험에 가입되어 있지 않은 경우에 신청이 \n가능한가요 ?23\nQ63. 일반재산 중 토지와 건축물의 과세표준액은 어디에서 \n확인을 할 수 있나요 ?23\nQ64. 차량시가표준액은 어디서 확인할 수 있나요 ? 23\nQ65. 주택, 분양권 , 조합원 입주권 소유여부는 어디서 \n확인할 수 있나요 ?24\nQ66. 주거용 오피스텔을 소유하고 있어도 , 주택 소유자로 \n보나요 ?24\n신청 \n제외 \n대상Q67. 현재 청년수당을 받고 있는데 청년월세지원을 신청할 \n수 있나요 ?24', 'https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020108.jsp 2/2']","Young adults can receive various forms of support from the Seoul Housing (SH) for moving costs, particularly through programs aimed at assisting those in need, such as the Youth Monthly Rent Support or other housing assistance initiatives. These programs may provide financial aid to help cover moving expenses, rental deposits, and monthly rent. 
+
+To get specific details about the eligibility criteria, application process, and the amount of support available, it is advisable to check the official SH website or contact their customer service for the most accurate and updated information.","Young adults can get support for moving costs from SH if they have received real estate brokerage fees or moving expenses from LH or SH. If they only received brokerage fees from another institution, they can get a maximum of 400,000 won for moving expenses.",0.36363636363636365,0.0,0.0,0.0
+What are the implications of the 금융소비자보호법 on 대출신청 for young residents in public rental housing in Seoul?,"['https://www.khug.or.kr/hug/web/ig/lj/iglj000002.jsp?tabMenu=Y#none 1/3', '□ 신청방법\n ㅇ 청년몽땅정보통 (youth.seoul.go.kr)  온라인 신청 ※ 방문‧우편 접수 등 불가', 'https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030605.jsp 2/3', 'https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020406.jsp 1/2']","The 금융소비자보호법 (Financial Consumer Protection Act) has several implications for 대출신청 (loan applications) for young residents in public rental housing in Seoul. Here are some key points to consider:
+
+1. **Enhanced Consumer Rights**: The act aims to protect financial consumers by ensuring that they are provided with clear and accurate information about financial products. This means that young residents applying for loans will have better access to information regarding interest rates, fees, and terms, allowing them to make more informed decisions.
+
+2. **Transparency in Lending**: Lenders are required to disclose all relevant information about loans, which can help young borrowers understand the full cost of borrowing. This transparency can prevent predatory lending practices and ensure that young residents are not taken advantage of.
+
+3. **Responsible Lending Practices**: The act encourages responsible lending by requiring lenders to assess the borrower's ability to repay the loan. This is particularly important for young residents in public rental housing, who may have limited income and financial stability.
+
+4. **Access to Financial Education**: The act promotes financial education initiatives, which can help young residents improve their financial literacy. This is crucial for understanding loan products and managing debt effectively.
+
+5. **Complaint and Redress Mechanisms**: The act establishes mechanisms for consumers to file complaints and seek redress if they feel their rights have been violated. This provides young borrowers with a safety net in case of disputes with lenders.
+
+6. **Impact on Loan Availability**: While the act aims to protect consumers, it may also lead to stricter lending criteria. This could make it more challenging for some young residents to qualify for loans, especially if they have limited credit history or income.
+
+Overall, the 금융소비자보호법 is designed to create a safer and more transparent lending environment, which can benefit young residents in public rental housing by empowering them with knowledge and protections in their financial dealings.","The 금융소비자보호법 does not apply to the 주택도시기금대출, meaning that the rights to cancel illegal contracts under this law do not protect those applying for loans. Additionally, if a loan is taken out and the housing acquisition is confirmed, the loan must be repaid. Young residents in public rental housing must also be aware that if they have violated the terms of their housing fund loan agreement, they may be ineligible for further loans.",0.0,0.8850078480685771,0.0,0.0
+"대출계약 철회가 어떻게 효력이 발생하고, 금융소비자보호법과의 관계는 무엇인가요?","['Q25신청 후 선정 결과를 기다리고 있는데 , 신청 내용을 변경할 \n수 있나요 ?\nA◦ 최종 선정 전까지는 신청 내용을 변경할 수 없습니다. \n◦ 최종 선정이 되었다면, 선정 이후 변경 신청할 수 있습니다.', '※ 신청완료 후 통신상태 불량, 모바일 /PC에서 파일 \n업로드 중 오류 등으로 인해 파일 첨부가 누락되는 \n경우가 있으므로 서울주거포털 -마이페이지 -신혼부부  \n임차보증금 이자지원 신청내역 (본인/배우자 성명 \n클릭)에서 파일 첨부가 올바르게 되었는지 반드시 \n확인하기 바랍니다 .\n※ 추천서 발급은 신청한 순서대로 진행되므로 신청 후 \n유선문의 등으로 빠른 심사를 요청하더라도 불가합니다 .\n심사결과가 ‘승인거부 ’가 \n나왔을 때는?신청 완료 후 심사 부적격 사유 발생 시(필요 서류 미첨부 , \n인적사항 및 물건지 정보 오기재 등)승인 거부 처리 됩니다 . \n심사 결과가 승인 거부일 시에는 마이페이지에서 수정 버튼을  \n누른 후 거부 사유를 보완하면 재심사요청이 됩니다 . \n재심사요청 시에도 심사는 재심사 요청 기준 일로부터 \n평일 기준 3일 내외가 소요되오니 시간적인 여유를 가지고  \n신청하시기 바랍니다 .', '신혼가구, 2자녀 이상 가구 : 증액금액 이내에서 증액 후 총 보증금의 80% 이내', '대출한도\n다음 중 작은 금액으로 산정']","대출계약 철회는 일반적으로 금융소비자보호법에 따라 소비자가 대출 계약을 체결한 후 일정 기간 내에 계약을 철회할 수 있는 권리를 의미합니다. 이 권리는 소비자가 대출 조건이나 내용에 대해 충분히 이해하지 못했거나, 계약 체결 시 불리한 조건이 있었던 경우에 보호하기 위한 것입니다.
+
+대출계약 철회가 효력을 발생하기 위해서는 다음과 같은 절차를 따라야 합니다:
+
+1. **철회 통지**: 소비자는 대출 계약을 체결한 금융기관에 철회 의사를 명확히 통지해야 합니다. 이 통지는 서면, 전화, 이메일 등 다양한 방법으로 가능할 수 있으며, 금융기관의 규정에 따라 다를 수 있습니다.
+
+2. **철회 기간**: 금융소비자보호법에 따르면, 대출 계약 철회는 일반적으로 계약 체결일로부터 14일 이내에 이루어져야 합니다. 이 기간 내에 철회 의사를 통지하면 계약은 효력이 없게 됩니다.
+
+3. **환급 절차**: 대출 계약이 철회되면, 소비자는 대출금과 함께 발생한 이자나 수수료 등을 환급받을 수 있습니다. 이 과정에서 금융기관은 소비자가 지불한 금액을 신속하게 반환해야 합니다.
+
+금융소비자보호법은 이러한 대출계약 철회 권리를 보장함으로써 소비자를 보호하고, 불공정한 거래 관행을 방지하는 역할을 합니다. 따라서 소비자는 대출 계약 체결 시 자신의 권리를 충분히 이해하고, 필요할 경우 철회할 수 있는 권리를 행사할 수 있습니다.","대출계약 철회는 채무자가 철회기한 이내에 원금과 이자 및 부대비용을 전액 반환한 때에 효력이 발생합니다. 또한, 대출계약 철회권의 효력이 발생한 이후에는 철회권 행사 취소가 불가합니다. 그러나 주택도시기금대출은 금융소비자보호법의 위법계약해지권 적용대상이 아니며, 대출 취급 후 주택취득이 확인된 경우에는 본 대출금을 상환해야 합니다.",0.0,0.41941245736690225,0.0,0.0
+육아휴직자에게 우대금리는 어떻게 적용되나요?,"['2. 사업소득자 : 본인 또는 배우자의 폐업(퇴직 포함)한 경우', '2. 사업소득자 : 본인 또는 배우자의 폐업(퇴직 포함)한 경우', '- 7 -6. 선정결과 알림\n□ 일시 ※ 신청현황 등에 따라 변경될 수 있음\n ㅇ 서류심사 결과 : 2026년 6월 중순 (예정)\n   - 서류심사 결과 통보일로부터 10일 이내 이의신청 및 소명·보완자료 제출 가능\n ㅇ 최종심사 결과 : 2026년 7월 말 (예정)\n ㅇ 지원금 지급 : 2026년 7월 말 (예정)', '1. 근로소득자 : 본인 또는 배우자의 실직(휴직 포함)한 경우']","육아휴직자에게 우대금리가 적용되는 방식은 일반적으로 해당 정책이나 프로그램의 세부 사항에 따라 다를 수 있습니다. 일반적으로 육아휴직자는 근로소득자로 분류되며, 이 경우 실직이나 휴직 상태로 간주될 수 있습니다. 따라서 육아휴직 중인 경우에도 지원금이나 대출에 대한 우대금리를 받을 수 있는 가능성이 있습니다.
+
+정확한 적용 여부와 우대금리의 조건은 해당 지원 프로그램의 규정이나 지침을 확인해야 합니다. 육아휴직자에 대한 우대금리 적용 여부와 그 조건에 대한 구체적인 정보는 관련 기관이나 프로그램의 공식 안내를 참조하는 것이 좋습니다.","육아휴직자에게는 부부합산 소득이 20% 이상 감소한 경우와 같은 특정 조건을 충족해야 우대금리가 적용됩니다. 또한, 최종금리가 연 1.0% 미만인 경우에는 연 1.0%로 적용되며, 자산심사 부적격자의 경우 가산금리가 부과됩니다.",0.0,0.0,0.0,0.0
+서울시 청년월세지원에 신청하기 위해 국가유공자 확인서가 필요한가요?,"['3. 육아휴직자 : 본인 또는 배우자가 육아휴직한 경우\n4. 부부합산 소득이 20%이상 감소한 경우\n5. 본인 또는 가족의질병, 상해 등으로 인해 의료비 지출규모가 부부합산 소득의 10%를 초과하는 경우\n\xa0 ※ 치료·요양 목적이 아닌 금액(미용, 성형수술비 및 한약 등 건강증진의약품)은 제외\n6. 「재난적의료비 지원에 관한 법률」에 따라 재난적의료비 지급 결정 통보서를 받은 경우\n7. 가족이 사망한 경우\n8. 본인 또는 가족이 장애인이 된 경우\n9. 본인 또는 가족 거주주택에 재난의 피해를 입은 경우\n10. 본인이 이혼한 경우\n11. 본인 또는 배우자가 출산한 경우\n\xa0 ※ 5~11은 신청일로부터 최근 1년 이내 해당 사유가 발생해야함\n부부합산 연소득 6천만원 이하(생애최초 주택구입자, 2자녀이상\n가구는 연소득 7천만원, 신혼가구는 연소득 8.5천만원 이하),\n순자산가액 5.11억원 이하 무주택 세대주\n연 2.85% ∼ 연 4.15%', '- 대한민국 국적의 배우자가 있는 보증신청인이 재한외국인 처우 기본법 제2조\n제3호의 결혼이민자이거나 귀화로 인한 국적취득자인 경우40%\n국가유공자 가구보증신청인 또는 배우자, 보증신청인(배우자포함)의 직계존비속 중 세대원 1인\n이상이 국가유공자 또는 국가유공자의 선순위 유족인 가구인 경우로서 유공자\n본인 또는 수권자임을 확인받은 가구40%\n의사상자 가구보증신청인 또는 배우자, 보증신청인(배우자포함)의 직계존비속 중 세대원 1인\n이상이 ‘ 의사상자등 예우 및 지원에 관한 법률 ’ 에 따라 본인 또는 의사상자 수권\n자임을 확인 받은 가구40%\n배당이익 소송\n당사자보증신청인 또는 배우자가 배당이의 소송 당사자가 된 경우, 단, 직전 임대차계\n약 및 현재 임대차계약상 주택임대차보호법상의 우선변제를 받을 임차인의 범\n위에 해당하고 연소득이 4천만원(배우자 포함 6천만원) 이하인 경우40%\n전자계약 할', '3. 육아휴직자 : 본인 또는 배우자가 육아휴직한 경우\n4. 부부합산 소득이 20%이상 감소한 경우\n5. 본인 또는 가족의질병, 상해 등으로 인해 의료비 지출규모가 부부합산 소득의 10%를 초과하는 경우\n\xa0 ※ 치료·요양 목적이 아닌 금액(미용, 성형수술비 및 한약 등 건강증진의약품)은 제외\n6. 「재난적의료비 지원에 관한 법률」에 따라 재난적의료비 지급 결정 통보서를 받은 경우\n7. 가족이 사망한 경우\n8. 본인 또는 가족이 장애인이 된 경우\n9. 본인 또는 가족 거주주택에 재난의 피해를 입은 경우\n10. 본인이 이혼한 경우\n11. 본인 또는 배우자가 출산한 경우\n\xa0 ※ 5~11은 신청일로부터 최근 1년 이내 해당 사유가 발생해야함\n부부합산 연소득 8.5천만원 이하, 순자산가액 5.11억원 이하 무주택\n세대주\n신혼부부(혼인기간 7년 이내 또는 3개월 이내 결혼예정자)\n생애최초 주택구입자\n연 2.55% ∼ 연 3.85%', '※ 자세한 내용은 가까운 기금수탁은행을 방문하여 확인하실 수 있습니다.\n대출 대상\n아래의 요건을 모두 충족하는 자']","서울시 청년월세지원에 신청하기 위해서는 국가유공자 확인서가 필요하지 않습니다. 그러나 국가유공자 가구의 경우, 특별한 지원 혜택이 있을 수 있습니다. 일반적으로 청년월세지원은 소득, 자산, 주택 보유 여부 등 다양한 요건을 충족해야 하며, 국가유공자 확인서는 특정 지원 프로그램에 해당하는 경우에만 필요할 수 있습니다. 따라서 청년월세지원 신청 시에는 해당 프로그램의 구체적인 요건을 확인하는 것이 중요합니다.","서울시 청년월세지원에 신청하기 위해서는 국가유공자에 준하는 군경 등 확인서가 필요합니다. 이 확인서는 유족 또는 가족이 제출해야 하며, 청년부상제대군인의 경우 전·공상 심사결정서, 국가유공자ㆍ보훈보상대상자 요건해당 통지서, 국가보훈등록증 중 하나를 제출해야 합니다.",0.6,0.0,0.49999999995,0.0
+등록임대주택의 임차인도 지원 받을 수 있나요? 그리고 어떻게 등록임대주택인지 알 수 있나요?,"['[고정금리, 10년 고정 후 변동금리, 5년 단위 변동금리 또는 변동금리(국토교통부 고시)]다음 중 작은 금액으로 산정', '- ""지울 항목 선택"" 클릭\n\xa0\xa0\xa0③ 시간 범위는 모든 시간 선택 후 지금 지우기 버튼 클릭 \n\xa0\xa0\xa0④ 브라우저를 닫은 후 다시 브라우저를 띄운 후 신청 \n3) Safari (MAC)\n\xa0\xa0\xa0① 왼쪽 상단의 Safari > 설정\n\xa0\xa0\xa0② 설정 > 고급 > 하단의 ""메뉴 막대에서 개발자용 메뉴 보기"" 체크\n\xa0\xa0\xa0③ 메뉴표시줄의 개발자용 > 캐시 비우기\n\xa0\xa0\xa0④ 브라우저를 닫은 후 다시 브라우저를 띄운 후 신청 \n< 모바일 브라우저 캐시 데이터를 삭제하는 방법 >\n1) 안드로이드 크롬\n\xa0\xa0 ① 우측상단 메뉴( ... ) 버튼을 눌러 설정 메뉴로 진입 \n\xa0\xa0 ② 설정 메뉴 중 인터넷 사용 기록 삭제를 클릭\n\xa0\xa0 ③ 기간을 전체기간으로 선택 후 데이터 삭제 버튼을 눌러 캐시 삭제 \n\xa0\xa0 ④ 브라우저를 닫은 후 다시 브라우저를 띄운 후 신청\n2) iPhone (Safari)\n\xa0\xa0 ① iPhone 에서 설정 앱을 열고 상단 검색창에서 Safari를 검색 \n또는 하단 앱> Safari 클릭', '대출한도\n다음 중 작은 금액으로 산정', '1599-0800\n 1599-1771\n 1599-1 111\n 1588-2100\n 1599-8000\n1588-0956\n 1800-1333\n만족도  조사 매우만족 만족 보통 불만족 매우불만족']","등록임대주택의 임차인도 지원을 받을 수 있습니다. 등록임대주택은 정부에 등록된 임대주택으로, 일정한 조건을 충족하는 경우 임차인에게 다양한 지원 혜택이 제공됩니다. 
+
+등록임대주택인지 확인하는 방법은 다음과 같습니다:
+
+1. **국토교통부 홈페이지**: 국토교통부의 공식 웹사이트에서 등록임대주택 목록을 확인할 수 있습니다. 해당 사이트에서 주소나 단지를 검색하여 등록 여부를 확인할 수 있습니다.
+
+2. **지자체 문의**: 거주하는 지역의 구청이나 시청에 문의하여 등록임대주택에 대한 정보를 요청할 수 있습니다.
+
+3. **임대차 계약서 확인**: 임대차 계약서에 등록임대주택임을 나타내는 정보가 기재되어 있을 수 있습니다. 계약서에 등록번호나 관련 정보가 포함되어 있는지 확인해 보세요.
+
+이러한 방법을 통해 등록임대주택인지 여부를 확인하고, 지원 받을 수 있는지 알아보시기 바랍니다.","등록임대주택의 임차인은 지원에 신청할 수 없습니다. 등록임대사업자는 임대보증금 반환보증 가입이 의무이며, 임차인이 임차보증금 반환보증을 가입하는 경우 임대인에게 보증료 청구를 할 수 있습니다. 등록임대주택인지 알기 위해서는 부동산 등기사항전부증명서에서 갑구의 등기목적, 권리자 및 기타사항을 확인하면 됩니다.",0.09090909090909091,0.40754410436264354,0.0,0.0
+What documents are required to verify 사업소득 for housing assistance applications?,"['https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030603.jsp 2/2', 'https://nhuf.molit.go.kr/FP/FP05/FP0502/FP05020108.jsp 2/2', 'https://nhuf.molit.go.kr/FP/FP05/FP0503/FP05030104.jsp 2/2', 'https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp 2/4']","To verify 사업소득 (business income) for housing assistance applications, the following documents are typically required:
+
+1. **사업자등록증 (Business Registration Certificate)**: This document proves that the applicant is officially registered as a business entity.
+
+2. **소득세 신고서 (Income Tax Return)**: A copy of the income tax return filed for the relevant year, which provides details on the income earned from the business.
+
+3. **부가가치세 신고서 (Value Added Tax Return)**: If applicable, this document shows the VAT returns filed, which can provide additional insights into the business's financial status.
+
+4. **재무제표 (Financial Statements)**: This may include balance sheets and income statements that detail the financial performance of the business.
+
+5. **통장 거래내역서 (Bank Transaction Statements)**: Recent bank statements that reflect the business transactions can help verify the income reported.
+
+6. **기타 증빙서류 (Other Supporting Documents)**: Any additional documents that can support the verification of business income, such as contracts, invoices, or receipts.
+
+It's important to check with the specific housing assistance program for any additional requirements or variations in documentation.","To verify 사업소득 for housing assistance applications, one must provide either a 소득금액증명원 issued by the tax office (홈텍스) or an income verification certificate for ISA enrollment, along with a 사업소득 원천징수영수증 for year-end tax settlement. Additionally, a tax return and payment calculation confirmed by a tax accountant from the previous year may also be required.",0.0,0.7872501708662772,0.0,0.0
+상속인이 청년 주택드림 청약통장 가입조건 갖추지 못해도 어떻게 명의변경 할 수 있나요?,"['※ 세대주의  정의\n세대별  주민등록상에  배우자 , 직계존속 ( 배우자의  직계존속 ) 또는  직계  비속인  세대원으로  이루어진  세대의  세대주  (*\n형제·자매는  세대원에  미포함 ) 다만 , 다음에  해당하는  자도  세대주로  간주\n1) 세대주의  배우자\n2) 주민등록표상에  세대원으로  등록된  자가  대출접수일  현재  3 개월  이내에  결혼으로  세대주로  예정된  자', '인3 7,539,000 271,459 221,206 277,028\n인4 9,147,000 330,765 292,298 342,861\n인5 10,663,000 386,684 357,963 407,092\n인6 12,098,000 431,294 411,250 461,699\n인7 13,483,000 506,004 496,008 552,230\n인8 14,869,000 552,230 545,970 599,810\n인9 16,254,000 599,810 591,277 673,463\n인10 17,639,000 673,463 654,281 792,926\n출처 보건복지부 본인부담금은 노인장기요양보험료를 제외한 금액임 : ( ) ※ \n국민건강보험관리공단 (http://www.nhis.or.kr)※ 에서 보험료 조회 가능 문의 , 1577-1000☎\n민원서비스 서비스찾기 보험료납부확인서 ‘ ’ ‘ ’ ‘ ’☞ → →', '-5- 3. 신청안내', 'ㅇ 소득 가구당 기준 중위소득 이하 ( ) 150% \n   -신청인이 속한 가구의 건강보험료 부과액 최근 개월 년 월 월 평균액( 3 (’25 3 ~5 ) ) 이\n’년 기준 중위소득 이하의 건강보험료 부과액을 충족해야 함25 150% \n신청인의 건강보험이       ※ 피부양자 건강보험상 부모 등의 세대원으로 등록 인 경우 주민등록이 ( )\n별도 분리되어 있어도 부양자 부과액 기준\n      ※ 재외국민 중 개월 미만 국내 체류로 건강보험 피부양자 또는 지역가입자 자격을 상실하여 6 ,  \n해당 기간 년 월 월 내 보험료 부과 내역이 없는 경우 신청 불가 (’25 3 ~ 5 ) \n건강보험료 부과액 조회가 어려운 경우 별도의 소득 증빙자료를 요청할 수 있음       ※']","상속인이 청년 주택드림 청약통장 가입 조건을 갖추지 못하더라도 명의 변경을 할 수 있는 방법은 다음과 같습니다:
+
+1. **상속 절차 진행**: 상속인이 청약통장 명의 변경을 원할 경우, 먼저 상속 절차를 진행해야 합니다. 상속인이 법적으로 인정받은 상속인임을 증명할 수 있는 서류(예: 상속증명서, 가족관계증명서 등)를 준비해야 합니다.
+
+2. **청약통장 명의 변경 신청**: 상속인이 청약통장 명의 변경을 원할 경우, 해당 금융기관에 직접 방문하여 명의 변경 신청을 해야 합니다. 이때 필요한 서류를 제출해야 하며, 각 금융기관의 요구 사항에 따라 다를 수 있습니다.
+
+3. **조건 확인**: 청년 주택드림 청약통장 가입 조건을 충족하지 못하는 경우, 해당 통장을 유지하면서 다른 조건을 충족할 수 있는 방법을 모색할 수 있습니다. 예를 들어, 청년 주택드림 청약통장 외에 다른 주택청약 통장으로의 전환이나, 다른 주택 관련 지원 프로그램을 고려할 수 있습니다.
+
+4. **상담 및 지원 요청**: 명의 변경이나 청약 관련하여 궁금한 점이 있을 경우, 해당 금융기관이나 주택청약 관련 상담센터에 문의하여 구체적인 안내를 받을 수 있습니다.
+
+이와 같은 절차를 통해 상속인은 청약통장의 명의를 변경할 수 있습니다.","상속인이 청년 주택드림 청약통장 가입조건을 갖추지 못하였더라도 상속인 명의로 변경할 수 있습니다. 그러나 상속의 경우 비과세 혜택은 신청 및 적용이 불가하며, 저축 해지 시 청년 주택드림 청약통장 이율 적용 조건은 상속인 기준으로 합니다.",0.0,0.5236024827023078,0.9999999999,0.0
+What are the eligibility requirements and procedures for obtaining 개인보증 in the context of 전세보증금반환보증?,"['- 7 -6. 선정결과 알림\n□ 일시 ※ 신청현황 등에 따라 변경될 수 있음\n ㅇ 서류심사 결과 : 2026년 6월 중순 (예정)\n   - 서류심사 결과 통보일로부터 10일 이내 이의신청 및 소명·보완자료 제출 가능\n ㅇ 최종심사 결과 : 2026년 7월 말 (예정)\n ㅇ 지원금 지급 : 2026년 7월 말 (예정)', 'https://www.khug.or.kr/hug/web/ig/lj/iglj000002.jsp?tabMenu=Y#none 1/3', 'https://nhuf.molit.go.kr/FP/FP07/FP0701/FP07010301.jsp 2/4', '- 2 -2. 지원요건']","전세보증금반환보증을 위한 개인보증의 자격 요건 및 절차는 다음과 같습니다:
+
+### 자격 요건
+1. **신청자 요건**: 개인보증을 신청하는 사람은 전세 계약의 임차인이어야 하며, 해당 전세 계약이 법적으로 유효해야 합니다.
+2. **신용도**: 개인보증인의 신용도가 일정 기준 이상이어야 하며, 신용조회 결과에 따라 보증 가능 여부가 결정됩니다.
+3. **소득 요건**: 개인보증인은 일정 소득 이상을 유지해야 하며, 소득 증명이 필요할 수 있습니다.
+4. **재산 요건**: 보증인이 일정 수준 이상의 재산을 보유하고 있어야 할 수 있습니다.
+
+### 절차
+1. **신청서 제출**: 개인보증인은 전세보증금반환보증을 신청하기 위해 관련 서류와 함께 신청서를 제출해야 합니다.
+2. **서류 심사**: 제출된 서류는 심사를 거쳐 보증 가능 여부가 결정됩니다. 이 과정에서 신용도 및 소득 증명서류가 검토됩니다.
+3. **보증 계약 체결**: 심사를 통과하면 보증 계약을 체결하게 되며, 이때 보증료를 납부해야 할 수 있습니다.
+4. **보증금 지급**: 계약 체결 후, 전세보증금 반환이 필요할 경우 보증금이 지급됩니다.
+
+자세한 사항은 관련 기관의 공식 웹사이트나 고객센터를 통해 확인하는 것이 좋습니다.","To obtain 개인보증 in the context of 전세보증금반환보증, applicants must meet specific eligibility requirements related to their housing contracts. The 보증이용절차 involves a prior agreement between the 사업시행자 (such as LH or local public corporations) and the applicant, where the rights and obligations regarding the 보증계약 are discussed. Additionally, the applicant must ensure that their existing housing lease contract meets the necessary conditions, such as having a debt ratio of less than 90%. The 보증기간 is defined from the date the lease contract gains legal standing until its termination.",0.0,0.5635748093894757,0.0,0.25
