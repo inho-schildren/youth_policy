@@ -4,6 +4,14 @@ from langchain.schema import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_text_splitters import CharacterTextSplitter
 from config import EMBEDDING_MODEL, OPENAI_API_KEY
+import pymupdf4llm
+from langchain_text_splitters import MarkdownHeaderTextSplitter
+import re
+import os
+
+def bold_to_header(md_text: str) -> str:
+    """**섹션명** 패턴을 ## 헤더로 변환"""
+    return re.sub(r'^\*\*([^*]+)\*\*$', r'## \1', md_text, flags=re.MULTILINE)
 
 def housing_chunking_semantic(documents: list) -> list:
     embedding = OpenAIEmbeddings(
@@ -49,6 +57,42 @@ def housing_chunking_character(documents: list) -> list:
 
     chunks = text_splitter.split_documents(documents)
     print(f"글자수 기반 총 청크 수: {len(chunks)}")
+    return chunks
+
+def housing_chunking_markdown(pdf_folder: str) -> list:
+    headers_to_split = [
+        ("#", "header1"),
+        ("##", "header2"),
+        ("###", "header3"),
+    ]
+    md_splitter = MarkdownHeaderTextSplitter(
+        headers_to_split_on=headers_to_split,
+        strip_headers=False
+    )
+    recur_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=600,
+        chunk_overlap=50
+    )
+
+    chunks = []
+    for root, dirs, files in os.walk(pdf_folder):
+        for fname in files:
+            if not fname.endswith(".pdf"):
+                continue
+            pdf_path = os.path.join(root, fname)
+            try:
+                md_text = pymupdf4llm.to_markdown(pdf_path)
+                md_text = bold_to_header(md_text)
+                splits = md_splitter.split_text(md_text)
+                splits = recur_splitter.split_documents(splits)
+                for s in splits:
+                    s.metadata["source"] = fname
+                chunks.extend(splits)
+            except Exception as e:
+                print(f"  ⚠️ {fname} 변환 실패: {e}")
+
+    chunks = [c for c in chunks if len(c.page_content.strip()) > 100]
+    print(f"✅ housing 마크다운 청킹 완료: {len(chunks)}개 청크")
     return chunks
 
 # 기본 recursive
@@ -112,6 +156,7 @@ def finance_chunking_recur_v2(all_pages):
     chunks = [c for c in chunks if len(c.page_content.strip()) > 100]
     print(f"✅ recursive v2 청킹 완료: {len(all_pages)}개 → {len(chunks)}개 청크")
     return chunks
+
 def finance_chunking_character(all_pages):
     text_splitter = CharacterTextSplitter(
         separator="\n",
@@ -131,4 +176,38 @@ def finance_chunking_semantic(all_pages):
     chunks = text_splitter.split_documents(all_pages)
     chunks = [c for c in chunks if len(c.page_content.strip()) > 100]
     print(f"의미 기반 총 청크 수: {len(chunks)}")
+    return chunks
+
+def finance_chunking_markdown(pdf_folder: str) -> list:
+    import os
+    headers_to_split = [("#", "header1"), ("##", "header2"), ("###", "header3")]
+    md_splitter = MarkdownHeaderTextSplitter(
+        headers_to_split_on=headers_to_split,
+        strip_headers=False
+    )
+    recur_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=600,
+        chunk_overlap=50
+    )
+
+    chunks = []
+    # 하위 폴더까지 재귀적으로 탐색
+    for root, dirs, files in os.walk(pdf_folder):
+        for fname in files:
+            if not fname.endswith(".pdf"):
+                continue
+            pdf_path = os.path.join(root, fname)
+            try:
+                md_text = pymupdf4llm.to_markdown(pdf_path)
+                md_text = bold_to_header(md_text)        # bold → 헤더 변환
+                splits = md_splitter.split_text(md_text)  # 1차: 헤더 기준
+                splits = recur_splitter.split_documents(splits)  # 2차: 크기 기준
+                for s in splits:
+                    s.metadata["source"] = fname
+                chunks.extend(splits)
+            except Exception as e:
+                print(f"  ⚠️ {fname} 변환 실패: {e}")
+
+    chunks = [c for c in chunks if len(c.page_content.strip()) > 100]
+    print(f"✅ finance 마크다운 청킹 완료: {len(chunks)}개 청크")
     return chunks
