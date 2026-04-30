@@ -1,13 +1,13 @@
 import os
 import json
 from langchain.schema import Document
-from core.housing_loader import load_pdf, get_text_by_pages
+from core.housing_loader import load_pdf_plumber, load_pdf_pypdf
 from core.finance_loader import collect_documents
 from core.metadata import (
     extract_metadata, housing_normalize_meta,
     save_metadata, save_documents, load_documents
 )
-from core.chunker import chunk_documents, finance_chunking_recur
+from core.chunker import housing_chunking_semantic, finance_chunking_recur, housing_chunking_recur, housing_chunking_character
 from core.embedder_vectorstore import (
     housing_embed_and_save, housing_load_vectorstore,
     finance_embed_and_save, finance_load_vectorstore)
@@ -31,21 +31,16 @@ def run_pipeline():
 
         for file in pdf_files:
             print(f"📄 {file}")
-            pages = load_pdf(os.path.join(PDF_FOLDER, file))
-            if not pages:
+            doc = load_pdf_plumber(os.path.join(PDF_FOLDER, file))
+            if doc is None:
                 continue
 
-            full_text = get_text_by_pages(pages, MAX_PAGES)[:MAX_TEXT_LENGTH]
-            meta = housing_normalize_meta(extract_metadata(full_text), file)
+            meta = housing_normalize_meta(
+                extract_metadata(doc.page_content[:MAX_TEXT_LENGTH]), file
+            )
             meta_list.append(meta)
-
-            for p in pages:
-                if not p["page_content"].strip():
-                    continue
-                documents.append(Document(
-                    page_content=p["page_content"],
-                    metadata={**meta, "page": p["page"]}
-                ))
+            doc.metadata.update(meta)
+            documents.append(doc)
 
         save_metadata(meta_list, META_PATH)
         save_documents(documents, DOCS_PATH)
@@ -58,7 +53,7 @@ def run_pipeline():
     # ── 2. 청킹 ───────────────────────────────────────────
     if not os.path.exists(CHUNKS_PATH):
         print("🔄 청킹 시작")
-        chunks = chunk_documents(documents)
+        chunks = housing_chunking_recur(documents)
         save_documents(chunks, CHUNKS_PATH)
     else:
         print("📂 기존 chunks_v2.json 로드")
