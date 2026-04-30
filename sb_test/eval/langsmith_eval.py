@@ -2,7 +2,7 @@
 from __future__ import annotations
 import json, os
 from langsmith import Client
-from evaluators import CUSTOM_EVALUATORS
+from sb_test.eval.evaluators import CUSTOM_EVALUATORS
 
 LS = Client()
 DATASET_NAME = os.getenv("LS_DATASET", "youth-policy-eval-v1")

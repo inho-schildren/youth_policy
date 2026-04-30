@@ -12,8 +12,8 @@ from chain.rag_chain import build_chain
 # TODO: 실제 retriever 로드 경로에 맞춰 import
 from pipeline import housing_retriever, finance_retriever  # noqa
 
-from evaluators import CUSTOM_EVALUATORS
-from ragas_eval import run_ragas, push_to_langsmith
+from sb_test.eval.evaluators import CUSTOM_EVALUATORS
+from sb_test.eval.ragas_eval import run_ragas, push_to_langsmith
 
 LS = Client()
 DATASET_NAME = os.getenv("LS_DATASET", "youth-policy-eval-v1")
