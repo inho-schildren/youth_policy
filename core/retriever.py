@@ -10,8 +10,12 @@ from config import RETRIEVER_K, BM25_WEIGHT, DENSE_WEIGHT, MMR_FETCH_K, MMR_LAMB
 
 def get_basic_retriever(vectorstore):
     retriever = vectorstore.as_retriever(
-        search_type="similarity",
-        search_kwargs={"k": RETRIEVER_K}
+        search_type="mmr",
+        search_kwargs={
+            "k": RETRIEVER_K,
+            "fetch_k": MMR_FETCH_K,
+            "lambda_mult": MMR_LAMBDA
+        }
     )
     print(f"✅ Basic Retriever 생성 완료")
     return retriever
@@ -79,8 +83,8 @@ FINANCE_METADATA_FIELD_INFO = [
 
 def housing_retriever(chunks):
     vectorstore = housing_load_vectorstore()
-    return get_ensemble_retriever(chunks, vectorstore)
+    return get_basic_retriever(vectorstore)
 
 def finance_retriever(chunks):
     vectorstore = finance_load_vectorstore()
-    return get_ensemble_retriever(chunks, vectorstore)
+    return get_basic_retriever(vectorstore)
